@@ -4,7 +4,7 @@ ms.assetid: adb2fa45-e18f-4254-bd8b-a749a386e3b4
 description: Learn how to use the AdControl class to display banner ads in a JavaScript/HTML app for Windows 10 (UWP).
 title: AdControl in HTML 5 and JavaScript
 ms.author: mcleans
-ms.date: 10/04/2017
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -28,6 +28,7 @@ For a complete sample project that demonstrates how to add banner ads to a JavaS
 ## Integrate a banner ad into your app
 
 1. In Visual Studio, open your project or create a new project.
+
     > [!NOTE]
     > If you're using an existing project, open the Package.appxmanifest file in your project and ensure that the **Internet (Client)** capability is selected. Your app needs this capability to receive test ads and live ads.
 
@@ -35,9 +36,9 @@ For a complete sample project that demonstrates how to add banner ads to a JavaS
 
 3. Add a reference to the Microsoft Advertising SDK in your project:
 
-  1. From the **Solution Explorer** window, right click **References**, and select **Add Reference…**
-  2.  In **Reference Manager**, expand **Universal Windows**, click **Extensions**, and then select the check box next to **Microsoft Advertising SDK for JavaScript** (Version 10.0).
-  3.  In **Reference Manager**, click OK.
+    1. From the **Solution Explorer** window, right click **References**, and select **Add Reference…**
+    2.  In **Reference Manager**, expand **Universal Windows**, click **Extensions**, and then select the check box next to **Microsoft Advertising SDK for JavaScript** (Version 10.0).
+    3.  In **Reference Manager**, click OK.
 
 6.  Open the index.html file (or other html file as appropriate for your project).
 
@@ -108,6 +109,7 @@ If you use this code and do not see ads, you can try inserting an attribute of *
 > The *applicationId* and *adUnitId* values shown in this example are [test mode values](set-up-ad-units-in-your-app.md#test-ad-units). You must [replace these values with live values](set-up-ad-units-in-your-app.md#live-ad-units) from Windows Dev Center before submitting your app for submission.
 
 <span id="release" />
+
 ## Release your app with live ads
 
 1. Make sure your use of banner ads in your app follows our [guidelines for banner ads](ui-and-user-experience-guidelines.md#guidelines-for-banner-ads).
@@ -125,6 +127,7 @@ If you use this code and do not see ads, you can try inserting an attribute of *
 5.  Review your [advertising performance reports](../publish/advertising-performance-report.md) in the Dev Center dashboard.             
 
 <span id="manage" />
+
 ## Manage ad units for multiple ad controls in your app
 
 You can use multiple **AdControl** objects in a single app (for example, each page in your app might host a different **AdControl** object). In this scenario, we recommend that you assign a different ad unit to each control. Using different ad units for each control enables you to separately [configure the mediation settings](../publish/in-app-ads.md#mediation) and get discrete [reporting data](../publish/advertising-performance-report.md) for each control. This also enables our services to better optimize the ads we serve to your app.

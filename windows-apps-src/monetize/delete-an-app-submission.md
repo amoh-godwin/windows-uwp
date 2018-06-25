@@ -4,7 +4,7 @@ ms.assetid: 96C090C1-88F8-42E7-AED1-AFA9031E952B
 description: Use this method in the Microsoft Store submission API to delete an existing app submission.
 title: Delete an app submission
 ms.author: mcleans
-ms.date: 02/08/2017
+ms.date: 04/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -13,9 +13,6 @@ ms.localizationpriority: medium
 ---
 
 # Delete an app submission
-
-
-
 
 Use this method in the Microsoft Store submission API to delete an existing app submission.
 
@@ -34,8 +31,6 @@ This method has the following syntax. See the following sections for usage examp
 |--------|------------------------------------------------------------------|
 | DELETE    | ```https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/submissions/{submissionId}``` |
 
-<span/>
- 
 
 ### Request header
 
@@ -43,22 +38,19 @@ This method has the following syntax. See the following sections for usage examp
 |---------------|--------|-----------------------------------------------------------------------------|
 | Authorization | string | Required. The Azure AD access token in the form **Bearer** &lt;*token*&gt;. |
 
-<span/>
 
 ### Request parameters
 
 | Name        | Type   | Description                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
 | applicationId | string | Required. The Store ID of the app that contains the submission to delete. For more information about the Store ID, see [View app identity details](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details).  |
-| submissionId | string | Required. The ID of the submission to delete. This ID is available in the Dev Center dashboard, and it is included in the response data for requests to [create an app submission](create-an-app-submission.md).  |
+| submissionId | string | Required. The ID of the submission to delete. This ID is available in the response data for requests to [create an app submission](create-an-app-submission.md). For a submission that was created in the Dev Center dashboard, this ID is also available in the URL for the submission page in the dashboard.  |
 
-<span/>
 
 ### Request body
 
 Do not provide a request body for this method.
 
-<span/>
 
 ### Request example
 
@@ -82,8 +74,6 @@ If the request cannot be successfully completed, the response will contain one o
 | 400  | The request parameters are invalid. |
 | 404  | The specified submission could not be found. |
 | 409  | The specified submission was found but it could not be deleted in its current state, or the app uses a Dev Center dashboard feature that is [currently not supported by the Microsoft Store submission API](create-and-manage-submissions-using-windows-store-services.md#not_supported). |
-
-<span/>
 
 
 ## Related topics

@@ -4,7 +4,7 @@ ms.assetid: 1AE29512-7A7D-4179-ADAC-F02819AC2C39
 title: Files and folders in the Music, Pictures, and Videos libraries
 description: Add existing folders of music, pictures, or videos to the corresponding libraries. You can also remove folders from libraries, get the list of folders in a library, and discover stored photos, music, and videos.
 ms.author: lahugh
-ms.date: 02/08/2017
+ms.date: 06/18/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -13,9 +13,6 @@ ms.localizationpriority: medium
 ---
 
 # Files and folders in the Music, Pictures, and Videos libraries
-
-
-
 
 Add existing folders of music, pictures, or videos to the corresponding libraries. You can also remove folders from libraries, get the list of folders in a library, and discover stored photos, music, and videos.
 
@@ -40,7 +37,7 @@ A library is a virtual collection of folders, which includes a known folder by d
 
 ## Get a reference to a library
 
-> [!NOTE] 
+> [!NOTE]
 > Remember to declare the appropriate capability. See [App capability declarations](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations) for more information.
  
 
@@ -142,7 +139,7 @@ private async void getSongs()
     QueryOptions queryOption = new QueryOptions
         (CommonFileQuery.OrderByTitle, new string[] { ".mp3", ".mp4", ".wma" });
 
-    queryOption.FolderDepth = FolderDepth.Deep
+    queryOption.FolderDepth = FolderDepth.Deep;
 
     Queue<IStorageFolder> folders = new Queue<IStorageFolder>();
 

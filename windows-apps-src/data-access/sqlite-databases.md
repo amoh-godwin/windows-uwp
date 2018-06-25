@@ -3,7 +3,7 @@ author: normesta
 title: Use a SQLite database in a UWP app
 description: Use a SQLite database in a UWP app.
 ms.author: normesta
-ms.date: 11/08/2017
+ms.date: 06/08/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -118,6 +118,7 @@ You don't have to do this. But if you have a reason to include a specific versio
 ![SQLite package](images/sqlite-package-v2.png)
 
 <a id="use-data" />
+
 ## Add and retrieve data in a SQLite database
 
 We'll do these things:
@@ -138,7 +139,7 @@ From your UWP project, add a reference to the **DataAccessLibrary** project in y
 
 ![Data access class library](images/ref-class-library.png)
 
-Add the following ``using`` statement to the **App.xaml.cs** and **MainPage.xaml** files in your UWP project.
+Add the following ``using`` statement to the **App.xaml.cs** and **MainPage.xaml.cs** files in your UWP project.
 
 ```csharp
 using DataAccessLibrary;
@@ -167,6 +168,7 @@ using Microsoft.Data.Sqlite;
 ```
 
 <a id="initialize" />
+
 ### Initialize the SQLite database
 
 Add a method to the **DataAccess** class that initializes the SQLite database.
@@ -180,7 +182,7 @@ public static void InitializeDatabase()
         db.Open();
 
         String tableCommand = "CREATE TABLE IF NOT " +
-            "EXISTS MyTable (Primary_Key INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "EXISTS MyTable (Primary_Key INTEGER PRIMARY KEY, " +
             "Text_Entry NVARCHAR(2048) NULL)";
 
         SqliteCommand createTable = new SqliteCommand(tableCommand, db);
@@ -208,6 +210,7 @@ public App()
 ```
 
 <a id="insert" />
+
 ### Insert data into the SQLite database
 
 Add a method to the **DataAccess** class that inserts data into the SQLite database. This code uses parameters in the query to prevent SQL injection attacks.
@@ -236,6 +239,7 @@ public static void AddData(string inputText)
 ```
 
 <a id="retrieve" />
+
 ### Retrieve data from the SQLite database
 
 Add a method that gets rows of data from a SQLite database.

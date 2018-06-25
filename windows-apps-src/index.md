@@ -4,7 +4,7 @@ layout: LandingPage
 description: The Universal Windows Platform (UWP) lets you build apps for any Windows deviceâ€”PCs, phones, Xbox One, HoloLens, and moreâ€”and publish them to the Store.
 title: UWP Documentation - UWP app developer | Microsoft Docs
 ms.prod: windows
-ms.topic: article
+ms.topic: landing-page
 ms.author: mijacobs
 ms.date: 08/4/2017
 ms.technology: uwp
@@ -27,7 +27,7 @@ The Universal Windows Platform (UWP) lets you build apps for any Windows deviceâ
                     <div class="cardText">
                         <h3>What's new</h3>
                         <p>
-                            <a href="whats-new/windows-10-build-16299.md">New APIs and features</a>
+                            <a href="whats-new/windows-10-version-latest.md">New APIs and features</a>
                         </p>
                         <p>
                             <a href="whats-new/windows-docs-latest.md">What's new in the docs</a>
@@ -52,7 +52,7 @@ The Universal Windows Platform (UWP) lets you build apps for any Windows deviceâ
                     <div class="cardText">
                         <h3>Get started</h3>
                         <p>
-                            <a href="get-started/whats-a-uwp.md">What's a UWP app?</a>
+                            <a href="get-started/universal-application-platform-guide.md">What's a UWP app?</a>
                         </p>
                         <p>
                             <a href="get-started/sign-up.md">Sign up for a developer account</a>
@@ -114,6 +114,9 @@ The Universal Windows Platform (UWP) lets you build apps for any Windows deviceâ
                             <a href="packaging/index.md">Packaging apps</a>
                         </p>
                         <p>
+                            <a href="//docs.microsoft.com/windows/uwpcommunitytoolkit/">Windows Community Toolkit</a>
+                        </p>
+                        <p>
                             <a href="porting/index.md">Porting apps to Windows 10</a>
                         </p>
                         <p>
@@ -121,6 +124,9 @@ The Universal Windows Platform (UWP) lets you build apps for any Windows deviceâ
                         </p>
                         <p>
                             <a href="apps-for-education/index.md">Education apps</a>
+                        </p>
+                        <p>
+                            <a href="porting/apps-on-arm.md">Windows 10 on ARM</a>
                         </p>
                     </div>
                 </div>
@@ -248,4 +254,29 @@ The Universal Windows Platform (UWP) lets you build apps for any Windows deviceâ
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_support.svg" alt=" " />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Community and support</h3>
+                        <p>
+                            <a href="https://twitter.com/WindowsDocs">@WindowsDocs on Twitter</a>
+                        </p>
+                        <p>
+                            <a href="http://aka.ms/OneDevMinute">OneDevMinute on YouTube</a>
+                        </p>
+                        <p>
+                            <a href="https://developer.microsoft.com/windows/support">Windows developer support</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>    
 </ul>

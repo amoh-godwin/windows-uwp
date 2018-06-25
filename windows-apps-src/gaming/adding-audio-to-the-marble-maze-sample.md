@@ -153,7 +153,7 @@ When you create an effect chain, follow these steps:
 
 6. Disable or enable the effect whenever appropriate.
 
-The **Audio** class defines the **CreateReverb** method to create the effect chain that implements reverb. This method calls the [XAudio2CreateReverb](https://msdn.microsoft.com/library/windows/desktop/ee419213) method to create a **ComPtr&lt;IUnknown&gt;** <!--[IXAudio2SubmixVoice](https://msdn.microsoft.com/library/windows/desktop/ee415915)--> object, **soundEffectXAPO**, which acts as the submix voice for the reverb effect.
+The **Audio** class defines the **CreateReverb** method to create the effect chain that implements reverb. This method calls the [XAudio2CreateReverb](https://msdn.microsoft.com/library/windows/desktop/ee419213) method to create a **ComPtr&lt;IUnknown&gt;** object, **soundEffectXAPO**, which acts as the submix voice for the reverb effect.
 
 ```cpp
 Microsoft::WRL::ComPtr<IUnknown> soundEffectXAPO;
@@ -822,7 +822,7 @@ Marble Maze also uses the **m\_engineExperiencedCriticalError** flag to guard ag
 
 That wraps up the Marble Maze game sample! Though it is a relatively simple game, it contains many of the important parts that go into any UWP DirectX game, and is a good example to follow when making your own game.
 
-Now that you've finished following along, try tinkering around with the source code and seeing what happens. Or check out [Create a simple UWP game with DirectX](tutorial--create-your-first-metro-style-directx-game.md), another UWP DirectX game sample.
+Now that you've finished following along, try tinkering around with the source code and seeing what happens. Or check out [Create a simple UWP game with DirectX](tutorial--create-your-first-uwp-directx-game.md), another UWP DirectX game sample.
 
 Ready to go further with DirectX? Then check out our guides at [DirectX programming](directx-programming.md).
 

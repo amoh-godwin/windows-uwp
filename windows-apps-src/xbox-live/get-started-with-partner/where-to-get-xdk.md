@@ -9,7 +9,7 @@ ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: xbox live, xbox, games, uwp, windows 10, xbox one, xdk
-ms.localizationpriority: medium
+ms.localizationpriority: low
 ---
 
 # Where to get the Xbox Development Kit (XDK)
@@ -24,7 +24,7 @@ ms.localizationpriority: medium
 - Xbox One dev kit
 - Xbox One XDK
 - Visual Studio
-	- Visual Studio 2012, Visual Studio 2015, or Visual Studio 2017
+	- Visual Studio 2012, Visual Studio 2015, Visual Studio 2017, or the latest release of Visual Studio. The latest version of Visual Studio will give you access to the most current updates for development and security.
 
 ## Permissions
 To download the XDK, configure Xbox Live services for your app, and access the developer support forum, please work with your account manager.

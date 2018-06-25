@@ -1,6 +1,6 @@
 ---
 title: What's new for the Xbox Live
-author: staceyhaffner
+author: PhillipLucas
 description: What's new for the Xbox Live SDK
 ms.author: sthaff
 ms.date: 10/04/2017
@@ -8,7 +8,7 @@ ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: xbox live, xbox, games, uwp, windows 10, xbox one
-ms.localizationpriority: medium
+ms.localizationpriority: low
 ---
 
 # What's new for Xbox Live
@@ -16,6 +16,7 @@ You can also check the [Xbox Live API GitHub commit history](https://github.com/
 
 #### In this article
 
+* [June 2018](#june-2018)
 * [August 2017](#august-2017)
 * [July 2017](#july-2017)
 * [June 2017](#june-2017)
@@ -24,11 +25,21 @@ You can also check the [Xbox Live API GitHub commit history](https://github.com/
 * [March 2017](#march-2017)
 * [Archived](#archived)
 
-##August 2017
+## June 2018
 
-###Xbox Live features
+### Xbox Live Features
 
-####In-Game clubs
+#### C API layer for XSAPI
+
+C APIs are now available for some Xbox Live features. The new API layer provides a number of benefits for the supported features, including custom memory management, manual thread management for asynchronous tasks, and a new HTTP library.
+
+For more information, see [Xbox Live C APIs](../xsapi-flat-c.md).
+
+## August 2017
+
+### Xbox Live features
+
+#### In-Game clubs
 
 Developers can now create "in-game clubs". In-game clubs differ from standard Xbox clubs in that they are fully customizable by a developer and can be used both inside and outside of the game. As a game developer, you can use them to quickly build any type of persistent group scenarios inside your games such as teams, clans, squads, guilds, etc. that match your unique requirements.
 
@@ -148,4 +159,3 @@ There are the following new articles:
 * [September 2015](1509-whats-new.md)
 * [August 2015](1508-whats-new.md)
 * [June 2015](1506-whats-new.md)
-

@@ -4,7 +4,7 @@ Description: The Microsoft Store offers Mobile Operator Billing as a payment met
 title: Mobile operator billing
 ms.assetid: C8A5A4BA-6B39-42FC-B8C4-ED1B7F774CC1
 ms.author: wdg-dev-content
-ms.date: 12/18/2017
+ms.date: 06/08/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -26,9 +26,11 @@ Mobile Operator Billing is currently supported by these mobile operators.
 
 | Country/region  | Mobile operators                 |
 |-----------------|----------------------------------|
-| Austria         | Hutchison 3G Austria, A1 Telekom |
+| Australia       | Optus                            |
+| Austria         | Hutchison 3G Austria, A1 Telekom, T-Mobile / tele.ring  |
 | Belgium         | Base, Proximus                   |
 | Canada          | Telus                            |
+| Czech Republic  | T-Mobile                         |
 | Denmark         | 3, TDC / YouSee, Telenor, Telia  |
 | Finland         | DNA, Elisa                       |
 | France          | Orange                           |
@@ -39,12 +41,13 @@ Mobile Operator Billing is currently supported by these mobile operators.
 | Netherlands     | KPN                              |
 | Norway          | Telenor, Telia                   |
 | Poland          | Orange                           |
-| Romania         | Orange                           |
-| Russia          | Beeline                          |
+| Singapore       | M1 Limited, StarHub              |
+| Slovakia        | Slovak Telekom                   |
 | Spain           | Orange                           |
 | Sweden          | Telenor, 3                       |
-| Switzerland     | Swisscom                         |
+| Switzerland     | Swisscom, Sunrise                |
 | Turkey          | Turkcell                         |
+| United Arab Emirates | Etisalat                    |
 | United States   | Sprint, Verizon                  |
 | United Kingdom  | O2, 3 UK, EE                     |
 

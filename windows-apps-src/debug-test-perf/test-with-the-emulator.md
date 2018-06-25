@@ -24,9 +24,9 @@ You can test your universal app using a unique Windows 10 Mobile emulator image 
 
 Your computer must meet the following requirements:
 
-BIOS
+CPU (these settings, if available, can be enabled in the BIOS)
 
--   Hardware-assisted virtualization.
+-   Hardware-assisted virtualization ([check compatibility](https://www.microsoft.com/download/details.aspx?id=592)).
 -   Second Level Address Translation (SLAT).
 -   Hardware-based Data Execution Prevention (DEP).
 
@@ -44,7 +44,7 @@ To check the BIOS requirements, see [How to enable Hyper-V for the emulator for 
 
 To check requirements for RAM and operating system, in Control Panel, select **System and Security**, and then select **System**.
 
-Microsoft Emulator for Windows 10 Mobile requires Visual Studio 2015; it is not backward compatible with earlier versions of Visual Studio.
+Microsoft Emulator for Windows 10 Mobile requires Visual Studio 2015 or later; it is not backward compatible with earlier versions of Visual Studio.
 
 Microsoft Emulator for Windows 10 Mobile cannot load apps that target the Windows Phone OS version earlier than Windows Phone OS 7.1.
 
@@ -633,7 +633,7 @@ When you install the emulator, a Windows 10 for Mobile VHD image is installed, w
 
 In the current release, you must then manually delete the VHD file for the emulator. If you installed the emulator to the default path, the VHD file is at C:\\Program Files (x86)\\Windows Kits\\10\\Emulation\\Mobile\\<version>\\flash.vhd.
 
-###How to disable hardware accelerated graphics
+### How to disable hardware accelerated graphics
 
 By default, Windows 10 Mobile Emulator uses hardware accelerated graphics. If you are having trouble launching the emulator with hardware acceleration enabled, you can turn it off by setting a registry value.
 

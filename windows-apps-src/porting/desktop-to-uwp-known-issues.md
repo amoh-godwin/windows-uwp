@@ -4,7 +4,7 @@ Description: This article contains known issues with the Desktop Bridge.
 Search.Product: eADQiWindows 10XVcnh
 title: Known Issues (Desktop Bridge)
 ms.author: normesta
-ms.date: 07/18/2017
+ms.date: 06/20/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -18,6 +18,7 @@ ms.localizationpriority: medium
 This article contains known issues with the Desktop Bridge.
 
 <a id="app-converter" />
+
 ## Known Issues with the Desktop App Converter
 
 ### E_CREATING_ISOLATED_ENV_FAILED an E_STARTING_ISOLATED_ENV_FAILED errors    
@@ -89,7 +90,7 @@ A [Windows update (Version 14393.351 - KB3197954)](https://support.microsoft.com
 
 If updating does not fix the problem or you aren't sure how to recover your PC, please contact [Microsoft Support](https://support.microsoft.com/contactus/).
 
-If you are a developer, you may want to prevent the installation of your Desktop Bridge apps on versions of Windows that do not include this update. Note that by doing this your app will not be available to users that have not yet installed the update. To limit the availability of your app to users that have installed this update, modify your AppxManifest.xml file as follows:
+If you are a developer, you may want to prevent the installation of your packaged application on versions of Windows that do not include this update. Note that by doing this your app will not be available to users that have not yet installed the update. To limit the availability of your app to users that have installed this update, modify your AppxManifest.xml file as follows:
 
 ```<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.351" MaxVersionTested="10.0.14393.351"/>```
 
@@ -123,6 +124,41 @@ Run **certutil** from the the command line on the PFX file and copy the *Subject
 certutil -dump <cert_file.pfx>
 ```
 
+<a id="bad-pe-cert" />
+
+### Bad PE certificate (0x800700C1)
+
+This can happen when your package contains a binary that has a corrupted certificate. Here's some of the reasons why this can happen:
+
+* The start of the certificate is not at the end of an image.  
+
+* The size of the certificate isn't positive.
+
+* The certificate start isn't after the `IMAGE_NT_HEADERS32` structure for a 32-bit executable or after the `IMAGE_NT_HEADERS64` structure for a 64-bit executable.
+
+* The certificate pointer isn't properly aligned for a WIN_CERTIFICATE structure.
+
+To find files that contain a bad PE cert, open a **Command Prompt**, and set the environment variable named `APPXSIP_LOG` to a value of 1.
+
+```
+set APPXSIP_LOG=1
+```
+
+Then, from the **Command Prompt**, sign your application again. For example:
+
+```
+signtool.exe sign /a /v /fd SHA256 /f APPX_TEST_0.pfx C:\Users\Contoso\Desktop\pe\VLC.appx
+```
+
+Information about files that contain a bad PE cert will appear in the **Console Window**. For example:
+
+```
+...
+
+ERROR: [AppxSipCustomLoggerCallback] File has malformed certificate: uninstall.exe
+
+...   
+```
 ## Next Steps
 
 **Find answers to your questions**

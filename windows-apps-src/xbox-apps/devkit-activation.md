@@ -14,10 +14,6 @@ ms.localizationpriority: medium
 
 # Xbox One Developer Mode activation
 
-<!-- * [How Developer Mode works](#how-developer-mode-works)
-* [Activate Developer Mode on your retail Xbox One console](#activate-developer-mode-on-your-retail-xbox-one-console)  
-* [Switch between Retail and Developer Mode](#switch-between-retail-and-developer-mode) -->
-
 ## How Developer Mode works
 Xbox One has two modes, *Retail* Mode (**1**) and *Developer* Mode (**2**). In Retail Mode, the console is in the state that any customer or user of an Xbox One console would use: you can play games and run apps as a user. In Developer Mode, you can develop software for the console, but you cannot play retail games or run retail apps.
 
@@ -60,9 +56,9 @@ Developer Mode can be enabled on any retail Xbox One console. After Developer Mo
 ## Switch between Retail and Developer Mode
 After Developer Mode has been enabled on your console, use **Dev Home** to switch between Retail Mode and Developer Mode. To learn more about starting and using Dev Home, see [Introduction to Xbox One tools](introduction-to-xbox-tools.md).
 
-* To switch to Retail Mode, open **Dev Home** and navigate to the **Settings** tab. Under **Console settings**, select **Leave Dev Mode**. This will restart your console in Retail Mode.    
+* To switch to Retail Mode, open **Dev Home**. Under **Quick Actions**, select **Leave Dev Mode**. This will restart your console in Retail Mode.    
 
-  ![Activation Step 13](images/activation-step-13-rs2.png)  
+  ![Activation Step 13](images/activation-step-13-rs4.png)  
   
 * To switch to Developer Mode, use the Dev Mode Activation app. Open the app and select **Switch and restart**. This will restart your console in Developer Mode.  
 

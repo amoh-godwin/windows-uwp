@@ -3,7 +3,7 @@ author: mcleanbyron
 description: Use this method in the Microsoft Store submission API to get package rollout info for a package flight submission.
 title: Get rollout info for a flight submission
 ms.author: mcleans
-ms.date: 08/03/2017
+ms.date: 04/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -33,8 +33,6 @@ This method has the following syntax. See the following sections for usage examp
 |--------|------------------------------------------------------------------|
 | GET   | ```https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/flights/{flightId}/submissions/{submissionId}/packagerollout   ``` |
 
-<span/>
- 
 
 ### Request header
 
@@ -42,17 +40,15 @@ This method has the following syntax. See the following sections for usage examp
 |---------------|--------|-----------------------------------------------------------------------------|
 | Authorization | string | Required. The Azure AD access token in the form **Bearer** &lt;*token*&gt;. |
 
-<span/>
 
 ### Request parameters
 
 | Name        | Type   | Description                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
 | applicationId | string | Required. The Store ID of the app that contains the package flight submission with the package rollout info you want to get. For more information about the Store ID, see [View app identity details](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details).  |
-| flightId | string | Required. The ID of the package flight that contains the submission with the package rollout info you want to get. This ID is available in the response data for requests to [create a package flight](create-a-flight.md) and [get package flights for an app](get-flights-for-an-app.md).  |
-| submissionId | string | Required. The ID of the submission with the package rollout info to get. This ID is available in the Dev Center dashboard, and it is included in the response data for requests to [create a package flight submission](create-a-flight-submission.md).  |
+| flightId | string | Required. The ID of the package flight that contains the submission with the package rollout info you want to get. This ID is available in the response data for requests to [create a package flight](create-a-flight.md) and [get package flights for an app](get-flights-for-an-app.md). For a flight that was created in the Dev Center dashboard, this ID is also available in the URL for the flight page in the dashboard.    |
+| submissionId | string | Required. The ID of the submission with the package rollout info to get. This ID is available in the response data for requests to [create a package flight submission](create-a-flight-submission.md). For a submission that was created in the Dev Center dashboard, this ID is also available in the URL for the submission page in the dashboard.   |
 
-<span/>
 
 ### Request body
 
@@ -99,8 +95,6 @@ If the request cannot be successfully completed, the response will contain one o
 |--------|------------------|
 | 404  | The package flight submission could not be found. |
 | 409  | The package flight submission does not belong to the specified package flight, or the app uses a Dev Center dashboard feature that is [currently not supported by the Microsoft Store submission API](create-and-manage-submissions-using-windows-store-services.md#not_supported). |   
-
-<span/>
 
 
 ## Related topics

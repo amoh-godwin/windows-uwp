@@ -1,9 +1,9 @@
----
+﻿---
 author: jnHs
 Description: After your packages have been successfully uploaded, you'll see a table that indicates which packages will be offered to specific Windows 10 device families (and earlier OS versions, if applicable), in ranked order.
 title: Device family availability
 ms.author: wdg-dev-content
-ms.date: 10/12/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -32,6 +32,7 @@ You can uncheck the box for any Windows 10 device family if you don’t want to 
 If your app supports them, we recommend keeping all of the boxes checked, unless you have a specific reason to limit the types of Windows 10 devices which can acquire your app. For instance, if you know that your app doesn't offer a good experience on [Surface Hub](https://developer.microsoft.com/windows/surfacehub) and/or [Microsoft HoloLens](http://dev.windows.com/holographic/development_overview), you can uncheck the **Windows 10 Team** and/or **Windows 10 Holographic** box. This prevents any new customers from acquiring the app on those devices. If you later decide you're ready to offer it to those customers, you can create a new submission with the boxes checked.
 
 <span id="xbox" />
+
 The only Windows 10 device family that is not checked by default for Windows.Universal packages is **Windows 10 Xbox**. If your app is not a game (or if it is a game and you have enabled the [Xbox Live Creators Program](../xbox-live/get-started-with-creators/get-started-with-xbox-live-creators.md) or gone through the [concept approval](../gaming/concept-approval.md) process), and your submission includes neutral and/or x64 UWP packages compiled using Windows 10 SDK version 14393 or later, you can check the **Windows 10 Xbox** box to offer the app to customers on Xbox One.
 
 > [!IMPORTANT]
@@ -44,6 +45,8 @@ The only Windows 10 device family that is not checked by default for Windows.Uni
 > 	
 > If you are still unable to resolve the issue, contact support.
 
+If you're submitting a UWP app for Windows 10 IoT Core, you should not make changes to the default selections after uploading your packages; there is no separate checkbox for Windows 10 IoT. For more about publishing IoT Core UWP apps, see [Microsoft Store support for IoT Core UWP apps](https://docs.microsoft.com/windows/iot-core/commercialize-your-device/installingandservicing).
+
 If your submission includes packages that can run on **Windows 8/8.1** and **Windows Phone 8.x and earlier**, those packages will be made available to customers, as shown in the table. There are no checkboxes for these OS versions. To stop offering your app to these customers, remove the corresponding packages from your submission.
 
 > [!IMPORTANT]
@@ -53,8 +56,7 @@ It's important to be aware that selections you make in the **Device family avail
 
 For example, if you have a published app with Windows Phone 8.1 packages, and you later add a Windows 10 (UWP) package to the same app that targets the universal device family, Windows 10 mobile customers who had your Windows Phone 8.1 package will be offered an update to this Windows 10 (UWP) package, even if you've unchecked the box for **Windows 10 Mobile** (since this is not a new acquisition, but an update). However, if you don't provide any Windows 10 (UWP) package that targets the universal or mobile device family, your Windows 10 mobile customers will remain on the Windows Phone 8.1 package.
 
-For more info about device families, see [Intro to the Universal Windows Platform](../get-started/universal-application-platform-guide.md) and [**TargetDeviceFamily**](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-targetdevicefamily).
-
+For more info about device families, see [**Device families overview**](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview).
 
 ## Understanding ranking
 

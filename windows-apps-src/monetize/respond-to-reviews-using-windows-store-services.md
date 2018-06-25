@@ -4,7 +4,7 @@ ms.assetid: c92c0ea8-f742-4fc1-a3d7-e90aac11953e
 description: Use the Microsoft Store reviews API to programmatically submit responses to reviews of your app in the Store.
 title: Respond to reviews using Store services
 ms.author: mcleans
-ms.date: 02/08/2017
+ms.date: 06/04/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -26,6 +26,7 @@ The following steps describe the end-to-end process:
 > In addition to using the Microsoft Store reviews API to programmatically respond to reviews, you can alternatively respond to reviews [using the Windows Dev Center dashboard](../publish/respond-to-customer-reviews.md).
 
 <span id="prerequisites" />
+
 ## Step 1: Complete prerequisites for using the Microsoft Store reviews API
 
 Before you start writing code to call the Microsoft Store reviews API, make sure that you have completed the following prerequisites.
@@ -38,15 +39,16 @@ Before you start writing code to call the Microsoft Store reviews API, make sure
 
 To associate an Azure AD application with your Dev Center account and retrieve the required values:
 
-1.  In Dev Center, go to your **Account settings**, click **Manage users**, and [associate your organization's Dev Center account with your organization's Azure AD directory](../publish/associate-azure-ad-with-dev-center.md).
+1.  In Dev Center, [associate your organization's Dev Center account with your organization's Azure AD directory](../publish/associate-azure-ad-with-dev-center.md).
 
-2.  In the **Manage users** page, click **Add Azure AD applications**, add the Azure AD application that represents the app or service that you will use to manage promotion campaigns for your Dev Center account, and assign it the **Manager** role. If this application already exists in your Azure AD directory, you can select it on the **Add Azure AD applications** page to add it to your Dev Center account. Otherwise, you can create a new Azure AD application on the **Add Azure AD applications** page. For more information, see [Add Azure AD applications to your Dev Center account](../publish/add-users-groups-and-azure-ad-applications.md#azure-ad-applications).
+2.  Next, from the **Users** page in the **Account settings** section of Dev Center, [add the Azure AD application](../publish/add-users-groups-and-azure-ad-applications.md#add-azure-ad-applications-to-your-dev-center-account) that represents the app or service that you will use to respond to reviews. Make sure you assign this application the **Manager** role. If the application doesn't exist yet in your Azure AD directory, you can [create a new Azure AD application in Dev Center](../publish/add-users-groups-and-azure-ad-applications.md#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-dev-center-account). 
 
-3.  Return to the **Manage users** page, click the name of your Azure AD application to go to the application settings, and copy down the **Tenant ID** and **Client ID** values.
+3.  Return to the **Users** page, click the name of your Azure AD application to go to the application settings, and copy down the **Tenant ID** and **Client ID** values.
 
 4. Click **Add new key**. On the following screen, copy down the **Key** value. You won't be able to access this info again after you leave this page. For more information, see [Manage keys for an Azure AD application](../publish/add-users-groups-and-azure-ad-applications.md#manage-keys).
 
 <span id="obtain-an-azure-ad-access-token" />
+
 ## Step 2: Obtain an Azure AD access token
 
 Before you call any of the methods in the Microsoft Store reviews API, you must first obtain an Azure AD access token that you pass to the **Authorization** header of each method in the API. After you obtain an access token, you have 60 minutes to use it before it expires. After the token expires, you can refresh the token so you can continue to use it in further calls to the API.
@@ -69,6 +71,7 @@ For the *tenant\_id* value in the POST URI and the *client\_id* and *client\_sec
 After your access token expires, you can refresh it by following the instructions [here](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-code/#refreshing-the-access-tokens).
 
 <span id="call-the-windows-store-reviews-api" />
+
 ## Step 3: Call the Microsoft Store reviews API
 
 After you have an Azure AD access token, you are ready to call the Microsoft Store reviews API. You must pass the access token to the **Authorization** header of each method.

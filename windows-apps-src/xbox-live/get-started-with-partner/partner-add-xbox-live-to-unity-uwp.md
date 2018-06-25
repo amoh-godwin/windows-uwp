@@ -9,7 +9,7 @@ ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: xbox live, xbox, games, uwp, windows 10, xbox one, Unity
-ms.localizationpriority: medium
+ms.localizationpriority: low
 ---
 
 # Add Xbox Live support to Unity for UWP with .NET scripting backend for ID@Xbox and managed partners
@@ -68,7 +68,7 @@ Follow the doc page called [Adding Xbox Live to a new or existing UWP project](g
 
 Copy/paste this example Xbox Live code into script you attached to the game object. This script will appear in the "Assembly-CSharp" project. You can change the code as desired.
 
-```cpp
+```csharp
 #if NETFX_CORE
 
 using UnityEngine;

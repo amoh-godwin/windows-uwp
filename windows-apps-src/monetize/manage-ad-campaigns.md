@@ -34,7 +34,7 @@ To use these methods, you need to first do the following:
 
 * [Obtain an Azure AD access token](run-ad-campaigns-using-windows-store-services.md#obtain-an-azure-ad-access-token) to use in the request header for these methods. After you obtain an access token, you have 60 minutes to use it before it expires. After the token expires, you can obtain a new one.
 
-<span/> 
+
 ## Request
 
 These methods have the following URIs.
@@ -46,7 +46,7 @@ These methods have the following URIs.
 | GET    | ```https://manage.devcenter.microsoft.com/v1.0/my/promotion/campaign/{campaignId}``` |  Gets the ad campaign specified by *campaignId*.  |
 | GET    | ```https://manage.devcenter.microsoft.com/v1.0/my/promotion/campaign``` |  Queries for ad campaigns. See the [Parameters](#parameters) section for the supported query parameters.  |
 
-<span/> 
+
 ### Header
 
 | Header        | Type   | Description         |
@@ -54,7 +54,9 @@ These methods have the following URIs.
 | Authorization | string | Required. The Azure AD access token in the form **Bearer** &lt;*token*&gt;. |
 | Tracking ID   | GUID   | Optional. An ID that tracks the call flow.                                  |
 
+
 <span id="parameters"/> 
+
 ### Parameters
 
 The GET method to query for ad campaigns supports the following optional query parameters.
@@ -68,12 +70,12 @@ The GET method to query for ad campaigns supports the following optional query p
 | storeProductId  |  string   | Use this value to return only the ad campaigns that are associated with the app with the specified [Store ID](in-app-purchases-and-trials.md#store-ids). An example Store ID for a product is 9nblggh42cfd.   |         
 | label  |  string   | Use this value to return only the ad campaigns that include the specified *label* in the [Campaign](#campaign) object.    |       |    
 
-<span/>
+
 ### Request body
 
 The POST and PUT methods require a JSON request body with the required fields of a [Campaign](#campaign) object and any additional fields you want to set or change.
 
-<span/>
+
 ### Request examples
 
 The following example demonstrates how to call the POST method to create an ad campaign.
@@ -105,7 +107,7 @@ GET https://manage.devcenter.microsoft.com/v1.0/my/promotion/campaign?storeProdu
 Authorization: Bearer <your access token>
 ```
 
-<span/> 
+
 ## Response
 
 These methods return a JSON response body with one or more [Campaign](#campaign) objects, depending on the method you called. The following example demonstrates a response body for the GET method for a specific campaign.
@@ -135,7 +137,9 @@ These methods return a JSON response body with one or more [Campaign](#campaign)
 }
 ```
 
+
 <span id="campaign"/>
+
 ## Campaign object
 
 The request and response bodies for these methods contain the following fields. This table shows which fields are read-only (meaning that they cannot be changed in the PUT method) and which fields are required in the request body for the POST method.
@@ -153,6 +157,7 @@ The request and response bodies for these methods contain the following fields. 
 |  objective   |  string   |  One of the following values that specifies the objective of the campaign: <ul><li>**DriveInstall**</li><li>**DriveReengagement**</li><li>**DriveInAppPurchase**</li></ul>     |   No    |  DriveInstall    |   Yes    |       
 |  lines   |  array   |   One or more objects that identify the [delivery lines](manage-delivery-lines-for-ad-campaigns.md#line) that are associated with the ad campaign. Each object in this field consists of an *id* and *name* field that specifies the ID and name of the delivery line.     |   No    |      |    No     |       
 |  createdDate   |  string   |  The date and time the ad campaign was created, in ISO 8601 format.     |  Yes     |      |     No    |       |
+
 
 ## Related topics
 

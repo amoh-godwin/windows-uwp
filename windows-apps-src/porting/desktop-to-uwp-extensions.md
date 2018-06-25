@@ -4,7 +4,7 @@ Description: You can use extensions to integrate your packaged desktop app with 
 Search.Product: eADQiWindows 10XVcnh
 title: Integrate your app with Windows 10 (Desktop Bridge)
 ms.author: normesta
-ms.date: 05/25/2017
+ms.date: 04/18/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -32,6 +32,7 @@ Help users transition to your packaged app.
 * [Open certain types of files directly by using a URL](#open)
 
 <a id="point" />
+
 ### Point existing Start tiles and taskbar buttons to your packaged app
 
 Your users might have pinned your desktop application to the taskbar or the Start menu. You can point those shortcuts to your new packaged app.
@@ -87,6 +88,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 [WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)
 
 <a id="make" />
+
 ### Make your packaged app open files instead of your desktop app
 
 You can make sure that users open your new packaged app by default for specific types of files instead of opening the desktop version of your app.
@@ -146,6 +148,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 [WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)
 
 <a id="associate" />
+
 ### Associate your packaged app with a set of file types
 
 You can associated your packaged app with file type extensions. If a user right-clicks a file and then selects the **Open with** option, your app appears in the list of suggestions.
@@ -204,6 +207,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 [WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)
 
 <a id="add" />
+
 ### Add options to the context menus of files that have a certain file type
 
 In most cases, users double-click files to open them. If users, right click a file, various options appear.
@@ -270,6 +274,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 [WPF picture viewer with transition/migration/uninstallation](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DesktopAppTransition)
 
 <a id="open" />
+
 ### Open certain types of files directly by using a URL
 
 You can make sure that users open your new packaged app by default for specific types of files instead of opening the desktop version of your app.
@@ -328,8 +333,10 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 ## Perform setup tasks
 
 * [Create firewall exception for your app](#rules)
+* [Place your DLL files into any folder of the package](#load-paths)
 
 <a id="rules" />
+
 ### Create firewall exception for your app
 
 If your app requires communication through a port, you can add your app to the list of firewall exceptions.
@@ -391,6 +398,57 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 </Package>
 ```
 
+<a id="load-paths" />
+
+### Place your DLL files into any folder of the package
+
+Use an extension to identify those folders. That way, the system can find and load the files that you place in them. Think of this extension as a replacement of the _%PATH%_ environment variable.
+
+If you don't use this extension, the system searches the package dependency graph of the process, the package root folder, and then the system directory (_%SystemRoot%\system32_) in that order. To learn more, see [Search order of Windows apps](https://msdn.microsoft.com/library/windows/desktop/ms682586.aspx#_search_order_for_windows_store_apps).
+
+Each package can contain only one of these extensions. That means that you can add one of them to your main package, and then add one to each of your [optional packages, and related sets](https://docs.microsoft.com/windows/uwp/packaging/optional-packages).
+
+#### XML namespace
+
+http://schemas.microsoft.com/appx/manifest/uap/windows10/6
+
+#### Elements and attributes of this extension
+Declare this extension at the package-level of your app manifest.
+
+```XML
+<Extension Category="windows.loaderSearchPathOverride">
+  <LoaderSearchPathOverride>
+    <LoaderSearchPathEntry FolderPath="[path]"/>
+  </LoaderSearchPathOverride>
+</Extension>
+
+```
+
+|Name | Description |
+|-------|-------------|
+|Category |Always ``windows.loaderSearchPathOverride``.
+|FolderPath | The path of the folder that contains your dll files. Specify a path that is relative to the root folder of the package. You can specify up to five paths in one extension. If you want the system to search for files in the root folder of the package, use an empty string for one of these paths. Don't included duplicate paths and make sure that your paths don't contain leading and trailing slashes or backslashes. <br><br> The system won't search subfolders, so make sure to explicitly list each folder that contains DLL files that you want the system to load.|
+
+#### Example
+
+```XML
+<Package
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
+  IgnorableNamespaces="uap6">
+  ...
+    <Extensions>
+      <uap6:Extension Category="windows.loaderSearchPathOverride">
+        <uap6:LoaderSearchPathOverride>
+          <uap6:LoaderSearchPathEntry FolderPath=""/>
+          <uap6:LoaderSearchPathEntry FolderPath="folder1/subfolder1"/>
+          <uap6:LoaderSearchPathEntry FolderPath="folder2/subfolder2"/>
+        </uap6:LoaderSearchPathOverride>
+      </uap6:Extension>
+    </Extensions>
+...
+</Package>
+```
+
 ## Integrate with File Explorer
 
 Help users organize your files and interact with them in familiar ways.
@@ -403,6 +461,7 @@ Help users organize your files and interact with them in familiar ways.
 * [Make files from your cloud service appear in File Explorer](#cloud-files)
 
 <a id="define" />
+
 ### Define how your app behaves when users select and open multiple files at the same time
 
 Specify how your app behaves when a user opens multiple files simultaneously.
@@ -475,6 +534,7 @@ packaged desktop apps have the same three options as regular desktop apps.
 If the user opens 15 or fewer files, the default choice for the **MultiSelectModel** attribute is *Player*. Otherwise, the default is *Document*. UWP apps are always started as *Player*.
 
 <a id="show" />
+
 ### Show file contents in a thumbnail image within File Explorer
 
 Enable users to view a thumbnail image of the file's contents when the icon of the file appears in the medium, large, or extra large size.
@@ -527,9 +587,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
               <uap:FileType>.bar</uap:FileType>
             </uap2:SupportedFileTypes>
             <desktop2:ThumbnailHandler
-              Clsid  ="20000000-0000-0000-0000-000000000001"
-              Cutoff="20x20"
-              Treatment="Video Sprockets" />
+              Clsid  ="20000000-0000-0000-0000-000000000001"  />
             </uap3:FileTypeAssociation>
          </uap::Extension>
       </Extensions>
@@ -539,6 +597,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 ```
 
 <a id="preview" />
+
 ### Show file contents in the Preview pane of File Explorer
 
 Enable users to preview a file's contents in the Preview pane of File Explorer.
@@ -599,6 +658,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 ```
 
 <a id="enable" />
+
 ### Enable users to group files by using the Kind column in File Explorer
 
 You can associate one or more predefined values for your file types with the **Kind** field.
@@ -664,6 +724,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 </Package>
 ```
 <a id="make-file-properties" />
+
 ### Make file properties available to search, index, property dialogs, and the details pane
 
 #### XML namespace
@@ -719,6 +780,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 ```
 
 <a id="cloud-files" />
+
 ### Make files from your cloud service appear in File Explorer
 
 Register the handlers that you implement in your application. You can also add context menu options that appear when you users right-click your cloud-based files in File Explorer.
@@ -781,6 +843,7 @@ Register the handlers that you implement in your application. You can also add c
 ```
 
 <a id="start" />
+
 ## Start your app in different ways
 
 * [Start your app by using a protocol](#protocol)
@@ -790,6 +853,7 @@ Register the handlers that you implement in your application. You can also add c
 * [Restart automatically after receiving an update from the Microsoft Store](#updates)
 
 <a id="protocol" />
+
 ### Start your app by using a protocol
 
 Protocol associations can enable other programs and system components to interoperate with your packaged app. When your packaged app is started by using a protocol, you can specify specific parameters to pass to its activation event arguments so it can behave accordingly. Parameters are supported only for packaged, full-trust apps. UWP apps can't use parameters.  
@@ -839,6 +903,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 </Package>
 ```
 <a id="alias" />
+
 ### Start your app by using an alias
 
 Users and other processes can use an alias to start your app without having to specify the full path to your app. You can specify that alias name.
@@ -892,6 +957,7 @@ Users and other processes can use an alias to start your app without having to s
 Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation).
 
 <a id="executable" />
+
 ### Start an executable file when users log into Windows
 
 Startup tasks allow your app to run an executable automatically whenever a user logs on.
@@ -953,6 +1019,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10
  </Package>
 ```
 <a id="autoplay" />
+
 ### Enable users to start your app when they connect a device to their PC
 
 AutoPlay can present your app as an option when a user connects a device to their PC.
@@ -1011,6 +1078,7 @@ http://schemas.microsoft.com/appx/manifest/desktop/windows10/3
 </Package>
 ```
 <a id="updates" />
+
 ### Restart automatically after receiving an update from the Microsoft Store
 
 If your app is open when users install an update to it, the app closes.
@@ -1037,6 +1105,7 @@ Integrate with other apps, start other processes or share information.
 * [Start a Win32 process from a Universal Windows Platform (UWP) app](#win32-process)
 
 <a id="printing" />
+
 ### Make your app appear as the print target in applications that support printing
 
 When users want to print data from another app such as Notepad, you can make your app appear as a print target in the app's list of available print targets.
@@ -1087,6 +1156,7 @@ Find the complete schema reference [here](https://docs.microsoft.com/uwp/schemas
 Find a sample that uses this extension [Here](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/PrintToPDF)
 
 <a id="fonts" />
+
 ### Share fonts with other Windows applications
 
 Share your custom fonts with other Windows applications.
@@ -1134,6 +1204,7 @@ Find the complete schema reference [here](https://review.docs.microsoft.com/uwp/
 </Package>
 ```
 <a id="win32-process" />
+
 ### Start a Win32 process from a Universal Windows Platform (UWP) app
 
 Start a Win32 process that runs in full-trust.

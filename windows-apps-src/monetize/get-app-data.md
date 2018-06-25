@@ -4,7 +4,7 @@ ms.assetid: 8D4AE532-22EF-4743-9555-A828B24B8F16
 description: Use these methods in the Microsoft Store submission API to retrieve data for apps that are registered to your Windows Dev Center account.
 title: Get app data
 ms.author: mcleans
-ms.date: 08/03/2017
+ms.date: 02/28/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -34,23 +34,23 @@ Before you can use these methods, the app must already exist in your Dev Center 
 <tbody>
 <tr>
 <td align="left">GET</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/applications```</td>
-<td align="left">[Get data for all your apps](get-all-apps.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/applications</td>
+<td align="left"><a href="get-all-apps.md">Get data for all your apps</a></td>
 </tr>
 <tr>
 <td align="left">GET</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}```</td>
-<td align="left">[Get data for a specific app](get-an-app.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}</td>
+<td align="left"><a href="get-an-app.md">Get data for a specific app</a></td>
 </tr>
 <tr>
 <td align="left">GET</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/listinappproducts```</td>
-<td align="left">[Get add-ons for an app](get-add-ons-for-an-app.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/listinappproducts</td>
+<td align="left"><a href="get-add-ons-for-an-app.md">Get add-ons for an app</a></td>
 </tr>
 <tr>
 <td align="left">GET</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/listflights```</td>
-<td align="left">[Get package flights for an app](get-flights-for-an-app.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/listflights</td>
+<td align="left"><a href="get-flights-for-an-app.md">Get package flights for an app</a></td>
 </tr>
 </tbody>
 </table>
@@ -66,6 +66,7 @@ If you have not done so already, complete all the [prerequisites](create-and-man
 The Microsoft Store submission API methods for getting app data use the following JSON data resources.
 
 <span id="application_object" />
+
 ### Application resource
 
 This resource represents an app that is registered to your account.
@@ -86,7 +87,7 @@ This resource represents an app that is registered to your account.
     "id": "1152921504621243487",
     "resourceLocation": "applications/9NBLGGH4R315/submissions/1152921504621243487"
   },
-  "hasAdvancedListingPermission": false
+  "hasAdvancedListingPermission": true
 }
 ```
 
@@ -102,10 +103,11 @@ This resource has the following values.
 | firstPublishedDate      | string  | The date the app was first published, in ISO 8601 format.   |
 | lastPublishedApplicationSubmission       | object | A [submission resource](#submission_object) that provides information about the last published submission for the app.    |
 | pendingApplicationSubmission        | object  |  A [submission resource](#submission_object) that provides information about the current pending submission for the app.   |   
-| hasAdvancedListingPermission        | object  |  Indicates whether you can configure the [gamingOptions](manage-app-submissions.md#gaming-options-object) or [trailers](manage-app-submissions.md#trailer-object) for submissions for the app. For more information, see [this section](manage-app-submissions.md#advanced-listings). |  |
+| hasAdvancedListingPermission        | boolean  |  Indicates whether you can configure the [gamingOptions](manage-app-submissions.md#gaming-options-object) or [trailers](manage-app-submissions.md#trailer-object) for submissions for the app. This value is true for submissions created after May 2017. |  |
 
 
 <span id="add-on-object" />
+
 ### Add-on resouce
 
 This resource provides information about an add-on.
@@ -124,6 +126,7 @@ This resource has the following values.
 
 
 <span id="flight-object" />
+
 ### Flight resource
 
 This resource provides information about a package flight for an app.
@@ -160,6 +163,7 @@ This resource has the following values.
 
 
 <span id="submission_object" />
+
 ### Submission resource
 
 This resource provides information about a submission. The following example demonstrates the format of this resource.

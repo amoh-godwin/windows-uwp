@@ -4,7 +4,7 @@ Description: This article lists things you need to know before packaging your ap
 Search.Product: eADQiWindows 10XVcnh
 title: Prepare to package an app (Desktop Bridge)
 ms.author: normesta
-ms.date: 11/27/2017
+ms.date: 05/18/20188
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -18,9 +18,9 @@ ms.localizationpriority: medium
 This article lists the things you need to know before you package your desktop app. You might not have to do much to get your app ready for the packaging process, but if any of the items below applies to your application, you need to address it before packaging. Remember that the Microsoft Store handles licensing and automatic updating for you, so you can remove any features that relate to those tasks from your codebase.
 
 >[!IMPORTANT]
->The Desktop Bridge was introduced in Windows 10, version 1607, and it can only be used in projects that target Windows 10 Anniversary Edition (10.0; Build 14393) or a later release in Visual Studio.
+>The Desktop Bridge was introduced in Windows 10, version 1607, and it can only be used in projects that target Windows 10 Anniversary Update (10.0; Build 14393) or a later release in Visual Studio.
 
-+ __Your app uses a version of .NET earlier than 4.6.1__. Only .NET 4.6.1 is supported. You'll have to retarget your app to .NET 4.6.1 before you package it.
++ __Your app requires a version of .NET earlier than 4.6.2__. You need to make sure your app runs on .NET 4.6.2. You cannot require or redistribute versions earlier than 4.6.2. This is the version of .NET that shipped in the Windows 10 Anniversary Update. Verifying your app works on this version will ensure that your app will continue to be compatible with future updates of Windows 10.  If your app targets the .NET Framework 4.0 or later, it is expected to run on .NET 4.6.2 but you should still test it.
 
 + __Your app always runs with elevated security privileges__. Your app needs to work while running as the interactive user. Users who install your app from the Microsoft Store may not be system administrators, so requiring your app to run elevated means that it won't run correctly for standard users. Apps that require elevation for any part of their functionality won't be accepted in the Microsoft Store.
 
@@ -88,7 +88,7 @@ The dependencies will not get installed if the app is installed by sideloading. 
   * [VC 11.0 framework packages for Desktop Bridge](https://www.microsoft.com/download/details.aspx?id=53340)
 
 
-+ __Your app contains a custom jump list__. There are several issues and caveats to aware of when using jump lists.
++ __Your app contains a custom jump list__. There are several issues and caveats to be aware of when using jump lists.
 
 	- __Your app's architecture does not match the OS.__  Jump lists currently do not function correctly if the app and OS architectures do not match (e.g., an x86 app running on x64 Windows). At this time, there is no workaround other than to recompile your app to the matching architecture.
 
@@ -100,7 +100,7 @@ The dependencies will not get installed if the app is installed by sideloading. 
 
 + __Your app starts a utility to perform tasks__. Avoid starting command utilities such as PowerShell and Cmd.exe. In fact, if users install your app onto a system that runs the Windows 10 S, then your app won’t be able to start them at all. This could block your app from submission to the Microsoft Store because all apps submitted to the Microsoft Store must be compatible with Windows 10 S.
 
-Starting a utility can often provide a convenient way to obtain information from the operating system, access the registry, or access system capabilities. However, you can use UWP APIs to accomplish these sorts of tasks instead. Those APIs are more performant because they don’t need a separate executable to run, but more importantly, they keep the app from reaching outside of the package. The app’s design stays consistent with the isolation, trust, and security that comes with a desktop bridge app, and your app will behave as expected on systems running Windows 10 S.
+Starting a utility can often provide a convenient way to obtain information from the operating system, access the registry, or access system capabilities. However, you can use UWP APIs to accomplish these sorts of tasks instead. Those APIs are more performant because they don’t need a separate executable to run, but more importantly, they keep the app from reaching outside of the package. The app’s design stays consistent with the isolation, trust, and security that comes with a app that you you've package with the desktop bridge, and your app will behave as expected on systems running Windows 10 S.
 
 + __Your app hosts add-ins, plug-ins, or extensions__.   In many cases, COM-style extensions will likely continue to work as long as the extension has not been packaged, and it installs as full trust. That's because those installers can use their full-trust capabilities to modify the registry and place extension files wherever your host app expects to find them.
 

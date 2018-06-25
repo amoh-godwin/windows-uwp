@@ -4,7 +4,7 @@ ms.assetid: 66400066-24BF-4AF2-B52A-577F5C3CA474
 description: Use these methods in the Microsoft Store submission API to manage add-on submissions for apps that are registered to your Windows Dev Center account.
 title: Manage add-on submissions
 ms.author: mcleans
-ms.date: 07/10/2017
+ms.date: 04/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -20,6 +20,7 @@ The Microsoft Store submission API provides methods you can use to manage add-on
 > If you use the Microsoft Store submission API to create a submission for an add-on, be sure to make further changes to the submission only by using the API, rather than the Dev Center dashboard. If you use the dashboard to change a submission that you originally created by using the API, you will no longer be able to change or commit that submission by using the API. In some cases, the submission could be left in an error state where it cannot proceed in the submission process. If this occurs, you must delete the submission and create a new submission.
 
 <span id="methods-for-add-on-submissions" />
+
 ## Methods for managing add-on submissions
 
 Use the following methods to get, create, update, commit, or delete an add-on submission. Before you can use these methods, the add-on must already exist in your Dev Center account. You can create an add-on in the dashboard by [defining its product type and product ID](../publish/set-your-add-on-product-id.md) or by using the Microsoft Store submission API methods in described in [Manage add-ons](manage-add-ons.md).
@@ -40,38 +41,39 @@ Use the following methods to get, create, update, commit, or delete an add-on su
 <tbody>
 <tr>
 <td align="left">GET</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}```</td>
-<td align="left">[Get an existing add-on submission](get-an-add-on-submission.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}</td>
+<td align="left"><a href="get-an-add-on-submission.md">Get an existing add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">GET</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}/status```</td>
-<td align="left">[Get the status of an existing add-on submission](get-status-for-an-add-on-submission.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}/status</td>
+<td align="left"><a href="get-status-for-an-add-on-submission.md">Get the status of an existing add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">POST</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions```</td>
-<td align="left">[Create a new add-on submission](create-an-add-on-submission.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions</td>
+<td align="left"><a href="create-an-add-on-submission.md">Create a new add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">PUT</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}```</td>
-<td align="left">[Update an existing add-on submission](update-an-add-on-submission.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}</td>
+<td align="left"><a href="update-an-add-on-submission.md">Update an existing add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">POST</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}/commit```</td>
-<td align="left">[Commit a new or updated add-on submission](commit-an-add-on-submission.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}/commit</td>
+<td align="left"><a href="commit-an-add-on-submission.md">Commit a new or updated add-on submission</a></td>
 </tr>
 <tr>
 <td align="left">DELETE</td>
-<td align="left">```https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}```</td>
-<td align="left">[Delete an add-on submission](delete-an-add-on-submission.md)</td>
+<td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions/{submissionId}</td>
+<td align="left"><a href="delete-an-add-on-submission.md">Delete an add-on submission</a></td>
 </tr>
 </tbody>
 </table>
 
 <span id="create-an-add-on-submission">
+
 ## Create an add-on submission
 
 To create a submission for an add-on, follow this process.
@@ -87,8 +89,9 @@ To create a submission for an add-on, follow this process.
     ```
 
     The response body contains an [add-on submission](#add-on-submission-object) resource that includes the ID of the new submission, the shared access signature (SAS) URI for uploading any add-on icons for the submission to Azure Blob storage, and all of the data for the new submission (such as the listings and pricing information).
-        > [!NOTE]
-        > A SAS URI provides access to a secure resource in Azure storage without requiring account keys. For background information about SAS URIs and their use with Azure Blob storage, see [Shared Access Signatures, Part 1: Understanding the SAS model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1) and [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/).
+
+    > [!NOTE]
+    > A SAS URI provides access to a secure resource in Azure storage without requiring account keys. For background information about SAS URIs and their use with Azure Blob storage, see [Shared Access Signatures, Part 1: Understanding the SAS model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1) and [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/).
 
 4. If you are adding new icons for the submission, [prepare the icons](https://msdn.microsoft.com/windows/uwp/publish/create-iap-descriptions#icon) and add them to a ZIP archive.
 
@@ -106,14 +109,14 @@ To create a submission for an add-on, follow this process.
     * [Azure Storage SDK for Java](https://docs.microsoft.com/azure/storage/storage-java-how-to-use-blob-storage)
     * [Azure Storage SDK for Python](https://docs.microsoft.com/azure/storage/storage-python-how-to-use-blob-storage)
 
-  The following C# code example demonstrates how to upload a ZIP archive to Azure Blob storage using the [CloudBlockBlob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx) class in the Azure Storage Client Library for .NET. This example assumes that the ZIP archive has already been written to a stream object.
+    The following C# code example demonstrates how to upload a ZIP archive to Azure Blob storage using the [CloudBlockBlob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx) class in the Azure Storage Client Library for .NET. This example assumes that the ZIP archive has already been written to a stream object.
 
-  ```csharp
-  string sasUrl = "https://productingestionbin1.blob.core.windows.net/ingestion/26920f66-b592-4439-9a9d-fb0f014902ec?sv=2014-02-14&sr=b&sig=usAN0kNFNnYE2tGQBI%2BARQWejX1Guiz7hdFtRhyK%2Bog%3D&se=2016-06-17T20:45:51Z&sp=rwl";
-  Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob blockBob =
-    new Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob(new System.Uri(sasUrl));
-  await blockBob.UploadFromStreamAsync(stream);
-  ```
+    ```csharp
+    string sasUrl = "https://productingestionbin1.blob.core.windows.net/ingestion/26920f66-b592-4439-9a9d-fb0f014902ec?sv=2014-02-14&sr=b&sig=usAN0kNFNnYE2tGQBI%2BARQWejX1Guiz7hdFtRhyK%2Bog%3D&se=2016-06-17T20:45:51Z&sp=rwl";
+    Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob blockBob =
+      new Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob(new System.Uri(sasUrl));
+    await blockBob.UploadFromStreamAsync(stream);
+    ```
 
 5. Commit the submission by executing the following method. This will alert Dev Center that you are done with your submission and that your updates should now be applied to your account. For more information, see [Commit an add-on submission](commit-an-add-on-submission.md).
 
@@ -132,7 +135,8 @@ To create a submission for an add-on, follow this process.
 7. After the commit has successfully completed, the submission is sent to the Store for ingestion. You can continue to monitor the submission progress by using the previous method, or by visiting the Dev Center dashboard.
 
 <span/>
-### Code examples
+
+## Code examples
 
 The following articles provide detailed code examples that demonstrate how to create an add-on submission in several different programming languages:
 
@@ -140,15 +144,20 @@ The following articles provide detailed code examples that demonstrate how to cr
 * [Java code examples](java-code-examples-for-the-windows-store-submission-api.md)
 * [Python code examples](python-code-examples-for-the-windows-store-submission-api.md)
 
-> [!NOTE]
-> In addition to the code examples listed above, we also provide an open-source PowerShell module which implements a command-line interface on top of the Microsoft Store submission API. This module is called [StoreBroker](https://aka.ms/storebroker). You can use this module to manage your app, flight, and add-on submissions from the command line instead of calling the Microsoft Store submission API directly, or you can simply browse the source to see more examples for how to call this API. The StoreBroker module is actively used within Microsoft as the primary way that many first-party applications are submitted to the Store. For more information, see our [StoreBroker page on GitHub](https://aka.ms/storebroker).
+## StoreBroker PowerShell module
+
+As an alternative to calling the Microsoft Store submission API directly, we also provide an open-source PowerShell module which implements a command-line interface on top of the API. This module is called [StoreBroker](https://aka.ms/storebroker). You can use this module to manage your app, flight, and add-on submissions from the command line instead of calling the Microsoft Store submission API directly, or you can simply browse the source to see more examples for how to call this API. The StoreBroker module is actively used within Microsoft as the primary way that many first-party applications are submitted to the Store.
+
+For more information, see our [StoreBroker page on GitHub](https://aka.ms/storebroker).
 
 <span/>
+
 ## Data resources
 
 The Microsoft Store submission API methods for managing add-on submissions use the following JSON data resources.
 
 <span id="add-on-submission-object" />
+
 ### Add-on submission resource
 
 This resource describes an add-on submission.
@@ -220,7 +229,7 @@ This resource has the following values.
 
 | Value      | Type   | Description        |
 |------------|--------|----------------------|
-| id            | string  | The ID of the submission.  |
+| id            | string  | The ID of the submission. This ID is available in the response data for requests to [create an add-on submission](create-an-add-on-submission.md), [get all add-ons](get-all-add-ons.md), and [get an add-on](get-an-add-on.md). For a submission that was created in the Dev Center dashboard, this ID is also available in the URL for the submission page in the dashboard.  |
 | contentType           | string  |  The [type of content](../publish/enter-add-on-properties.md#content-type) that is provided in the add-on. This can be one of the following values: <ul><li>NotSet</li><li>BookDownload</li><li>EMagazine</li><li>ENewspaper</li><li>MusicDownload</li><li>MusicStream</li><li>OnlineDataStorage</li><li>VideoDownload</li><li>VideoStream</li><li>Asp</li><li>OnlineDownload</li></ul> |  
 | keywords           | array  | An array of strings that contain up to 10 [keywords](../publish/enter-add-on-properties.md#keywords) for the add-on. Your app can query for add-ons using these keywords.   |
 | lifetime           | string  |  The lifetime of the add-on. This can be one of the following values: <ul><li>Forever</li><li>OneDay</li><li>ThreeDays</li><li>FiveDays</li><li>OneWeek</li><li>TwoWeeks</li><li>OneMonth</li><li>TwoMonths</li><li>ThreeMonths</li><li>SixMonths</li><li>OneYear</li></ul> |
@@ -236,9 +245,10 @@ This resource has the following values.
 | friendlyName  | string  |  The friendly name of the submission, as shown in the Dev Center dashboard. This value is generated for you when you create the submission.  |
 
 <span id="listing-object" />
+
 ### Listing resource
 
-This resource contains listing info for an add-on. This resource has the following values.
+This resource contains [listing info for an add-on](../publish/create-add-on-store-listings.md). This resource has the following values.
 
 | Value           | Type    | Description       |
 |-----------------|---------|------|
@@ -247,16 +257,18 @@ This resource contains listing info for an add-on. This resource has the followi
 |  title               |     string    |   The title for the add-on listing.   |  
 
 <span id="icon-object" />
+
 ### Icon resource
 
 This resource contains icon data for an add-on listing. This resource has the following values.
 
 | Value           | Type    | Description     |
 |-----------------|---------|------|
-|  fileName               |    string     |   The name of the icon file in the ZIP archive that you uploaded for the submission.    |     
+|  fileName               |    string     |   The name of the icon file in the ZIP archive that you uploaded for the submission. The icon must be a .png file that measures exactly 300 x 300 pixels.   |     
 |  fileStatus               |   string      |  The status of the icon file. This can be one of the following values: <ul><li>None</li><li>PendingUpload</li><li>Uploaded</li><li>PendingDelete</li></ul>   |
 
 <span id="pricing-object" />
+
 ### Pricing resource
 
 This resource contains pricing info for the add-on. This resource has the following values.
@@ -270,6 +282,7 @@ This resource contains pricing info for the add-on. This resource has the follow
 
 
 <span id="sale-object" />
+
 ### Sale resource
 
 This resources contains sale info for an add-on.
@@ -290,6 +303,7 @@ This resource has the following values.
 |  marketSpecificPricings               |   object      |   A dictionary of key and value pairs, where each key is a two-letter ISO 3166-1 alpha-2 country code and each value is a [price tier](#price-tiers). These items represent the [custom prices for your add-on in specific markets](https://msdn.microsoft.com/windows/uwp/publish/set-iap-pricing-and-availability#markets-and-custom-pricess). Any items in this dictionary override the base price specified by the *basePriceId* value for the specified market.    |
 
 <span id="status-details-object" />
+
 ### Status details resource
 
 This resource contains additional details about the status of a submission. This resource has the following values.
@@ -301,6 +315,7 @@ This resource contains additional details about the status of a submission. This
 |  certificationReports               |     object    |   An array of [certification report resources](#certification-report-object) that provide access to the certification report data for the submission. You can examine these reports for more information if the certification fails.    |  
 
 <span id="status-detail-object" />
+
 ### Status detail resource
 
 This resource contains additional information about any related errors or warnings for a submission. This resource has the following values.
@@ -311,6 +326,7 @@ This resource contains additional information about any related errors or warnin
 |  details               |     string    |  A message with more details about the issue.     |
 
 <span id="certification-report-object" />
+
 ### Certification report resource
 
 This resource provides access to the certification report data for a submission. This resource has the following values.
@@ -325,6 +341,7 @@ This resource provides access to the certification report data for a submission.
 These methods use the following enums.
 
 <span id="price-tiers" />
+
 ### Price tiers
 
 The following values represent available price tiers in the [pricing resource](#pricing-object) resource for an add-on submission.
@@ -337,6 +354,7 @@ The following values represent available price tiers in the [pricing resource](#
 |  Tier*xxxx*               |   A string that specifies the price tier for the add-on, in the format **Tier<em>xxxx</em>**. Currently, the following ranges of price tiers are supported:<br/><br/><ul><li>If the *isAdvancedPricingModel* value of the [pricing resource](#pricing-object) is **true**, the available price tier values for your account are **Tier1012** - **Tier1424**.</li><li>If the *isAdvancedPricingModel* value of the [pricing resource](#pricing-object) is **false**, the available price tier values for your account are **Tier2** - **Tier96**.</li></ul>To see the complete table of price tiers that are available for your developer account, including the market-specific prices that are associated with each tier, go to the **Pricing and availability** page for any of your app submissions in the Dev Center dashboard and click the **view table** link in the **Markets and custom prices** section (for some developer accounts, this link is in the **Pricing** section).     |
 
 <span id="submission-status-code" />
+
 ### Submission status code
 
 The following values represent the status code of a submission.

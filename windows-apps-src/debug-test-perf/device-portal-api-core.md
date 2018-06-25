@@ -1,10 +1,10 @@
 ---
-author: muhsinking
+author: PatrickFarley
 ms.assetid: bfabd3d5-dd56-4917-9572-f3ba0de4f8c0
 title: Device Portal core API reference
 description: Learn about the Windows Device Portal core REST APIs that you can use to access the data and control your device programmatically.
-ms.author: mukin
-ms.date: 02/08/2017
+ms.author: pafarley
+ms.date: 03/22/2017
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -14,7 +14,7 @@ ms.localizationpriority: medium
 
 # Device Portal core API reference
 
-Everything in the Windows Device Portal is built on top of REST APIs that you can use to access the data and control your device programmatically.
+All Device Portal functionality is built on REST APIs that developers can call directly to access resources and control their devices programmatically.
 
 ## App deployment
 
@@ -25,18 +25,18 @@ Everything in the Windows Device Portal is built on top of REST APIs that you ca
 
 You can install an app by using the following request format.
 
-Method      | Request URI
-:------     | :-----
-POST | /api/app/packagemanager/package
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/app/packagemanager/package |
+
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-package   | (**required**) The file name of the package to be installed.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| package   | (**required**) The file name of the package to be installed. |
+
 **Request headers**
 
 - None
@@ -52,12 +52,12 @@ package   | (**required**) The file name of the package to be installed.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | Deploy request accepted and being processed
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+| 200 | Deploy request accepted and being processed |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -73,18 +73,18 @@ HTTP status code      | Description
 
 You can install a [related set](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/) by using the following request format.
 
-Method      | Request URI
-:------     | :-----
-POST | /api/app/packagemanager/package
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/app/packagemanager/package |
+
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-package   | (**required**) The file names of the packages to be installed. 
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| package   | (**required**) The file names of the packages to be installed. |
+
 **Request headers**
 
 - None
@@ -100,12 +100,12 @@ package   | (**required**) The file names of the packages to be installed.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | Deploy request accepted and being processed
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+| 200 | Deploy request accepted and being processed |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -121,14 +121,14 @@ HTTP status code      | Description
 
 You can register an app in a loose folder by using the following request format.
 
-Method      | Request URI
-:------     | :-----
-POST | /api/app/packagemanager/networkapp
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/app/packagemanager/networkapp |
+
 **URI parameters**
 
 - None
-<br />
+
 **Request headers**
 
 - None
@@ -149,12 +149,12 @@ POST | /api/app/packagemanager/networkapp
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | Deploy request accepted and being processed
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+| 200 | Deploy request accepted and being processed |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -169,14 +169,14 @@ HTTP status code      | Description
 
 You can register a [related set](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/) in loose folders by using the following request format.
 
-Method      | Request URI
-:------     | :-----
-POST | /api/app/packagemanager/networkapp
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/app/packagemanager/networkapp |
+
 **URI parameters**
 
 - None
-<br />
+
 **Request headers**
 
 - None
@@ -206,12 +206,12 @@ POST | /api/app/packagemanager/networkapp
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | Deploy request accepted and being processed
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+| 200 | Deploy request accepted and being processed |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -226,10 +226,10 @@ HTTP status code      | Description
 
 You can get the status of an app installation that is currently in progress by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/app/packagemanager/state
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/app/packagemanager/state |
+
 **URI parameters**
 
 - None
@@ -248,12 +248,12 @@ GET | /api/app/packagemanager/state
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | The result of the last deployment
-204 | The installation is running
-404 | No installation action was found
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+| 200 | The result of the last deployment |
+| 204 | The installation is running |
+| 404 | No installation action was found |
+
 **Available device families**
 
 * Windows Mobile
@@ -269,16 +269,15 @@ HTTP status code      | Description
 
 You can uninstall an app by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-DELETE | /api/app/packagemanager/package
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/app/packagemanager/package |
 
 **URI parameters**
 
-URI parameter | Description
-:---          | :---
-package   | (**required**) The PackageFullName (from GET /api/app/packagemanager/packages) of the target app
+| URI parameter | Description |
+| :---          | :--- |
+| package   | (**required**) The PackageFullName (from GET /api/app/packagemanager/packages) of the target app |
 
 **Request headers**
 
@@ -294,12 +293,12 @@ package   | (**required**) The PackageFullName (from GET /api/app/packagemanager
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -315,10 +314,10 @@ HTTP status code      | Description
 
 You can get a list of apps installed on the system by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/app/packagemanager/packages
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/app/packagemanager/packages |
+
 
 **URI parameters**
 
@@ -363,17 +362,125 @@ The response includes a list of installed packages with associated details. The 
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
 * Windows Desktop
 * Xbox
+* HoloLens
+* IoT
+
+---
+## Bluetooth
+---
+> [!WARNING]
+> The APIs in this section are part of a flighted build and are only available through the [Windows Insider Program](https://insider.windows.com/).
+
+### Get the Bluetooth radios on the machine
+
+**Request**
+
+You can get a list of the Bluetooth radios that are installed on the machine by using the following request format. This can be upgraded to a WebSocket connection as well, with the same JSON data.
+ 
+| Method        | Request URI |
+| :---          | :--- |
+| GET           | /api/bt/getradios |
+| GET/WebSocket | /api/bt/getradios |
+
+
+**URI parameters**
+
+- None
+
+**Request headers**
+
+- None
+
+**Request body**
+
+- None
+
+**Response**
+
+The response includes a JSON array of Bluetooth radios attached to the device.
+``` 
+{"BluetoothRadios" : [
+    {
+        "BluetoothAddress" : int64,
+        "DisplayName" : string,
+        "HasUnknownUsbDevice" : boolean,
+        "HasProblem" : boolean,
+        "ID" : string,
+        "ProblemCode" : int,
+        "State" : string
+    },...
+]}
+```
+**Status code**
+
+This API has the following expected status codes.
+
+| HTTP status code | Description |
+| :---             | :--- |
+| 200              | OK |
+| 4XX              | Error codes |
+| 5XX              | Error codes |
+
+**Available device families**
+
+* Windows Desktop
+* HoloLens
+* IoT
+
+---
+### Turn the Bluetooth radio on or off
+
+**Request**
+
+Sets a specific Bluetooth radio to On or Off.
+ 
+| Method | Request URI |
+| :---   | :--- |
+| POST   | /api/bt/setradio |
+
+**URI parameters**
+
+You can specify the following additional parameters on the request URI:
+
+| URI parameter | Description |
+| :---          | :--- |
+| ID            | (**required**) The device ID for the Bluetooth radio and must be base 64 encoded. |
+| State         | (**required**) This can be `"On"` or `"Off"`. |
+
+**Request headers**
+
+- None
+
+**Request body**
+
+- None
+
+**Response**
+
+**Status code**
+
+This API has the following expected status codes.
+
+| HTTP status code | Description |
+| :---             | :--- |
+| 200              | OK |
+| 4XX              | Error codes |
+| 5XX              | Error codes |
+
+**Available device families**
+
+* Windows Desktop
 * HoloLens
 * IoT
 
@@ -386,10 +493,10 @@ HTTP status code      | Description
 
 You can get a list of devices that are installed on the machine by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/devicemanager/devices
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/devicemanager/devices |
+
 
 **URI parameters**
 
@@ -424,12 +531,12 @@ The response includes a JSON array of devices attached to the device.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes`
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -443,10 +550,10 @@ HTTP status code      | Description
 
 You can get a list of USB descriptors for connected USB devices and Hubs by using the following request format.
 
-Method      | Request URI
-:------     | :-----
-GET | /ext/devices/usbdevices
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /ext/devices/usbdevices |
+
 
 **URI parameters**
 
@@ -510,11 +617,11 @@ The response is JSON that includes DeviceID for the USB Device along with the US
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -529,10 +636,10 @@ HTTP status code      | Description
 
 You can get the list of all the available crash dumps for all sideloaded apps by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/debug/dump/usermode/dumps
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/debug/dump/usermode/dumps |
+
 
 **URI parameters**
 
@@ -554,12 +661,12 @@ The response includes a list of crash dumps for each sideloaded application.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Window Mobile (in Windows Insider Program)
@@ -574,19 +681,19 @@ HTTP status code      | Description
 
 You can get the crash dump collection settings for a sideloaded app by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/debug/dump/usermode/crashcontrol
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/debug/dump/usermode/crashcontrol |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-packageFullname   | (**required**) The full name of the package for the sideloaded app.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| packageFullname   | (**required**) The full name of the package for the sideloaded app. |
+
 **Request headers**
 
 - None
@@ -606,12 +713,12 @@ The response has the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Window Mobile (in Windows Insider Program)
@@ -626,20 +733,20 @@ HTTP status code      | Description
 
 You can delete a sideloaded app's crash dump by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-DELETE | /api/debug/dump/usermode/crashdump
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/debug/dump/usermode/crashdump |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-packageFullname   | (**required**) The full name of the package for the sideloaded app.
-fileName   | (**required**) The name of the dump file that should be deleted.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| packageFullname   | (**required**) The full name of the package for the sideloaded app. |
+| fileName   | (**required**) The name of the dump file that should be deleted. |
+
 **Request headers**
 
 - None
@@ -654,12 +761,12 @@ fileName   | (**required**) The name of the dump file that should be deleted.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Window Mobile (in Windows Insider Program)
@@ -674,19 +781,19 @@ HTTP status code      | Description
 
 You can disable crash dumps for a sideloaded app by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-DELETE | /api/debug/dump/usermode/crashcontrol
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/debug/dump/usermode/crashcontrol |
 
-<br />
+
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-packageFullname   | (**required**) The full name of the package for the sideloaded app.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| packageFullname   | (**required**) The full name of the package for the sideloaded app. |
+
 **Request headers**
 
 - None
@@ -701,12 +808,12 @@ packageFullname   | (**required**) The full name of the package for the sideload
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Window Mobile (in Windows Insider Program)
@@ -721,20 +828,20 @@ HTTP status code      | Description
 
 You can download a sideloaded app's crash dump by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/debug/dump/usermode/crashdump
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/debug/dump/usermode/crashdump |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-packageFullname   | (**required**) The full name of the package for the sideloaded app.
-fileName   | (**required**) The name of the dump file that you want to download.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| packageFullname   | (**required**) The full name of the package for the sideloaded app. |
+| fileName   | (**required**) The name of the dump file that you want to download. |
+
 **Request headers**
 
 - None
@@ -751,12 +858,12 @@ The response includes a dump file. You can use WinDbg or Visual Studio to examin
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Window Mobile (in Windows Insider Program)
@@ -771,19 +878,19 @@ HTTP status code      | Description
 
 You can enable crash dumps for a sideloaded app by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/debug/dump/usermode/crashcontrol
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/debug/dump/usermode/crashcontrol |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-packageFullname   | (**required**) The full name of the package for the sideloaded app.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| packageFullname   | (**required**) The full name of the package for the sideloaded app. |
+
 **Request headers**
 
 - None
@@ -798,10 +905,10 @@ packageFullname   | (**required**) The full name of the package for the sideload
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+
 **Available device families**
 
 * Window Mobile (in Windows Insider Program)
@@ -816,10 +923,10 @@ HTTP status code      | Description
 
 You can get the list of bugcheck minidump files by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/debug/dump/kernel/dumplist
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/debug/dump/kernel/dumplist |
+
 
 **URI parameters**
 
@@ -849,10 +956,10 @@ The response includes a list of dump file names and the sizes of these files. Th
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+
 **Available device families**
 
 * Windows Desktop
@@ -865,19 +972,20 @@ HTTP status code      | Description
 
 You can download a bugcheck dump file by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/debug/dump/kernel/dump
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/debug/dump/kernel/dump |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-filename   | (**required**) The file name of the dump file. You can find this by using the API to get the dump list.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| filename   | (**required**) The file name of the dump file. You can find this by using the API to get the dump list. |
+
+
 **Request headers**
 
 - None
@@ -894,12 +1002,12 @@ The response includes the dump file. You can inspect this file using WinDbg.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -912,11 +1020,11 @@ HTTP status code      | Description
 
 You can get the bugcheck crash control settings by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/debug/dump/kernel/crashcontrol
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/debug/dump/kernel/crashcontrol |
 
-<br />
+
 **URI parameters**
 
 - None
@@ -955,12 +1063,12 @@ The response includes the crash control settings. For more information about Cra
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -973,10 +1081,10 @@ HTTP status code      | Description
 
 You can get a live kernel dump by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/debug/dump/livekernel
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/debug/dump/livekernel |
+
 
 **URI parameters**
 
@@ -998,12 +1106,12 @@ The response includes the full kernel mode dump. You can inspect this file using
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -1016,19 +1124,19 @@ HTTP status code      | Description
 
 You can get the dump for live user process by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/debug/dump/usermode/live
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/debug/dump/usermode/live |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-pid   | (**required**) The unique process id for the process you are interested in.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| pid   | (**required**) The unique process id for the process you are interested in. |
+
 **Request headers**
 
 - None
@@ -1045,12 +1153,12 @@ The response includes the process dump. You can inspect this file using WinDbg o
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -1063,22 +1171,22 @@ HTTP status code      | Description
 
 You can set the settings for collecting bugcheck data by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/debug/dump/kernel/crashcontrol
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/debug/dump/kernel/crashcontrol |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-autoreboot   | (**optional**) True or false. This indicates whether the system restarts automatically after it fails or locks.
-dumptype   | (**optional**) The dump type. For the supported values, see the [CrashDumpType Enumeration](https://msdn.microsoft.com/library/azure/microsoft.azure.management.insights.models.crashdumptype.aspx).
-maxdumpcount   | (**optional**) The maximum number of dumps to save.
-overwrite   | (**optional**) True of false. This indicates whether or not to overwrite old dumps when the dump counter limit specified by *maxdumpcount* has been reached.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| autoreboot   | (**optional**) True or false. This indicates whether the system restarts automatically after it fails or locks. |
+| dumptype   | (**optional**) The dump type. For the supported values, see the [CrashDumpType Enumeration] (https://msdn.microsoft.com/library/azure/microsoft.azure.management.insights.models.crashdumptype.aspx).|
+| maxdumpcount   | (**optional**) The maximum number of dumps to save. |
+| overwrite   | (**optional**) True of false. This indicates whether or not to overwrite old dumps when the dump counter limit specified by *maxdumpcount* has been reached. |
+
 **Request headers**
 
 - None
@@ -1093,12 +1201,12 @@ overwrite   | (**optional**) True of false. This indicates whether or not to ove
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -1113,10 +1221,10 @@ HTTP status code      | Description
 
 You can create a realtime ETW session by using the following request format. This will be managed over a websocket.  ETW events are batched on the server and sent to the client once per second. 
  
-Method      | Request URI
-:------     | :-----
-GET/WebSocket | /api/etw/session/realtime
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET/WebSocket | /api/etw/session/realtime |
+
 
 **URI parameters**
 
@@ -1138,12 +1246,12 @@ The response includes the ETW events from the enabled providers.  See ETW WebSoc
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1154,10 +1262,10 @@ HTTP status code      | Description
 ### ETW WebSocket commands
 These commands are sent from the client to the server.
 
-Command | Description
-:----- | :-----
-provider *{guid}* enable *{level}* | Enable the provider marked by *{guid}* (without brackets) at the specified level. *{level}* is an **int** from 1 (least detail) to 5 (verbose).
-provider *{guid}* disable | Disable the provider marked by *{guid}* (without brackets).
+| Command | Description |
+| :----- | :----- |
+| provider *{guid}* enable *{level}* | Enable the provider marked by *{guid}* (without brackets) at the specified level. *{level}* is an **int** from 1 (least detail) to 5 (verbose). |
+| provider *{guid}* disable | Disable the provider marked by *{guid}* (without brackets). |
 
 This responses is sent from the server to the client. This is sent as text and you get the following format by parsing the JSON.
 ```
@@ -1207,10 +1315,10 @@ Example:
 
 You can enumerate through the registered providers by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/etw/providers
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/etw/providers |
+
 
 **URI parameters**
 
@@ -1240,10 +1348,10 @@ The response includes the list of ETW providers. The list will include the frien
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+|  200 | OK | 
+
 **Available device families**
 
 * Windows Mobile
@@ -1258,10 +1366,10 @@ HTTP status code      | Description
 
 You can enumerate through the registered providers by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/etw/customproviders
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/etw/customproviders |
+
 
 **URI parameters**
 
@@ -1291,7 +1399,7 @@ GET | /api/etw/customproviders
 **Status code**
 
 - Standard status codes.
-<br />
+
 **Available device families**
 
 * Windows Mobile
@@ -1309,10 +1417,10 @@ GET | /api/etw/customproviders
 
 You can get the device's location stack override status by using the following request format. Developer mode must be on for this call to succeed.
  
-Method      | Request URI
-:------     | :-----
-GET | /ext/location/override
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /ext/location/override |
+
 
 **URI parameters**
 
@@ -1338,12 +1446,12 @@ The response includes the override state of the device in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+|  200 | OK | 
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1358,10 +1466,10 @@ HTTP status code      | Description
 
 You can set the device's location stack override status by using the following request format. When enabled, the location stack allows position injection. Developer mode must be on for this call to succeed.
 
-Method      | Request URI
-:------     | :-----
-PUT | /ext/location/override
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| PUT | /ext/location/override |
+
 
 **URI parameters**
 
@@ -1389,12 +1497,12 @@ The response includes the override state that the device has been set to in the 
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1409,10 +1517,10 @@ HTTP status code      | Description
 
 You can get the device's injected (spoofed) location by using the following request format. An injected location must be set, or an error will be thrown.
  
-Method      | Request URI
-:------     | :-----
-GET | /ext/location/position
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /ext/location/position |
+
 
 **URI parameters**
 
@@ -1441,12 +1549,12 @@ The response includes the current injected latitude and longitude values in the 
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+|  HTTP status code      | Description | 
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1461,10 +1569,10 @@ HTTP status code      | Description
 
 You can set the device's injected (spoofed) location by using the following request format. Location override mode must first be enabled on the device, and the set location must be a valid location or an error will be thrown.
 
-Method      | Request URI
-:------     | :-----
-PUT | /ext/location/override
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| PUT | /ext/location/override |
+
 
 **URI parameters**
 
@@ -1498,12 +1606,12 @@ The response includes the location that has been set in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1521,10 +1629,10 @@ HTTP status code      | Description
 
 You can get the name of a machine by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/os/machinename
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/os/machinename |
+
 
 **URI parameters**
 
@@ -1550,12 +1658,12 @@ The response includes the computer name in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1571,10 +1679,10 @@ HTTP status code      | Description
 
 You can get the OS information for a machine by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/os/info
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/os/info |
+
 
 **URI parameters**
 
@@ -1606,12 +1714,12 @@ The response includes the OS information in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1627,10 +1735,10 @@ HTTP status code      | Description
 
 You can get the device family (Xbox, phone, desktop, etc) using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/os/devicefamily
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/os/devicefamily |
+
 
 **URI parameters**
 
@@ -1660,11 +1768,11 @@ DeviceType will look like "Windows.Xbox", "Windows.Desktop", etc.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
 
 **Available device families**
 
@@ -1681,19 +1789,19 @@ HTTP status code      | Description
 
 You can set the name of a machine by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/os/machinename
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/os/machinename |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-name | (**required**) The new name for the machine.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| name | (**required**) The new name for the machine. |
+
 **Request headers**
 
 - None
@@ -1708,10 +1816,10 @@ name | (**required**) The new name for the machine.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+
 **Available device families**
 
 * Windows Mobile
@@ -1729,10 +1837,10 @@ HTTP status code      | Description
 
 You can get the name of the active user on the device by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/users/activeuser
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/users/activeuser |
+
 
 **URI parameters**
 
@@ -1771,12 +1879,12 @@ On failure:
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -1792,11 +1900,11 @@ HTTP status code      | Description
 
 You can get the list of currently running processes by using the following request format.  this can be upgraded to a WebSocket connection as well, with the same JSON data being pushed to the client once per second. 
  
-Method      | Request URI
-:------     | :-----
-GET | /api/resourcemanager/processes
-GET/WebSocket | /api/resourcemanager/processes
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/resourcemanager/processes |
+| GET/WebSocket | /api/resourcemanager/processes |
+
 
 **URI parameters**
 
@@ -1833,12 +1941,12 @@ The response includes a list of processes with details for each process. The inf
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1853,11 +1961,11 @@ HTTP status code      | Description
 
 You can get the system performance statistics by using the following request format. This includes information such as read and write cycles and how much memory has been used.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/resourcemanager/systemperf
-GET/WebSocket | /api/resourcemanager/systemperf
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/resourcemanager/systemperf |
+| GET/WebSocket | /api/resourcemanager/systemperf |
+
 This can also be upgraded to a WebSocket connection.  It provides the same JSON data below once every second. 
 
 **URI parameters**
@@ -1911,12 +2019,12 @@ The response includes the performance statistics for the system such as CPU and 
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1934,10 +2042,10 @@ HTTP status code      | Description
 
 You can get the current state of the battery by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/power/battery
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/power/battery |
+
 
 **URI parameters**
 
@@ -1971,12 +2079,12 @@ The current battery state information is returned using the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -1991,10 +2099,10 @@ HTTP status code      | Description
 
 You can get the active power scheme by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/power/activecfg
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/power/activecfg |
+
 
 **URI parameters**
 
@@ -2019,12 +2127,12 @@ The active power scheme has the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2037,10 +2145,10 @@ HTTP status code      | Description
 
 You can get the sub-value for a power scheme by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/power/cfg/*<power scheme path>*
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/power/cfg/*<power scheme path>* |
+
 Options:
 - SCHEME_CURRENT
 
@@ -2062,12 +2170,12 @@ A full listing of power states available is on a per-application basis and the s
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2080,10 +2188,10 @@ HTTP status code      | Description
 
 You can check the power state of the system by using the following request format. This will let you check to see if it is in a low power state.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/power/state
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/power/state |
+
 
 **URI parameters**
 
@@ -2101,19 +2209,19 @@ GET | /api/power/state
 
 The power state information has the following template.
 ```
-{"LowPowerStateAvailable": bool}
+{"LowPowerState" : false, "LowPowerStateAvailable" : true }
 ```
 
 **Status code**
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2127,19 +2235,19 @@ HTTP status code      | Description
 
 You can set the active power scheme by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/power/activecfg
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/power/activecfg |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-scheme | (**required**) The GUID of the scheme you want to set as the active power scheme for the system.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| scheme | (**required**) The GUID of the scheme you want to set as the active power scheme for the system. |
+
 **Request headers**
 
 - None
@@ -2154,12 +2262,12 @@ scheme | (**required**) The GUID of the scheme you want to set as the active pow
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2172,20 +2280,20 @@ HTTP status code      | Description
 
 You can set the sub-value for a power scheme by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/power/cfg/*<power scheme path>*
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/power/cfg/*<power scheme path>* |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-valueAC | (**required**) The value to use for A/C power.
-valueDC | (**required**) The value to use for battery power.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| valueAC | (**required**) The value to use for A/C power. |
+| valueDC | (**required**) The value to use for battery power. |
+
 **Request headers**
 
 - None
@@ -2200,10 +2308,10 @@ valueDC | (**required**) The value to use for battery power.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+
 **Available device families**
 
 * Windows Desktop
@@ -2214,17 +2322,17 @@ HTTP status code      | Description
 
 **Request**
 
-Method      | Request URI
-:------     | :-----
-GET | /api/power/sleepstudy/report
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/power/sleepstudy/report |
+
 You can get a sleep study report by using the following request format.
 
 **URI parameters**
-URI parameter | Description
-:---          | :---
-FileName | (**required**) The full name for the file you want to download. This value should be hex64 encoded.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| FileName | (**required**) The full name for the file you want to download. This value should be hex64 encoded. |
+
 **Request headers**
 
 - None
@@ -2241,12 +2349,12 @@ The response is a file containing the sleep study.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2259,10 +2367,10 @@ HTTP status code      | Description
 
 You can enumerate the available sleep study reports by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/power/sleepstudy/reports
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/power/sleepstudy/reports |
+
 
 **URI parameters**
 
@@ -2292,12 +2400,12 @@ The list of available reports has the following template.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2310,10 +2418,10 @@ HTTP status code      | Description
 
 You can get the sleep study transform by using the following request format. This transform is an XSLT that converts the sleep study report into an XML format that can be read by a person.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/power/sleepstudy/transform
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/power/sleepstudy/transform |
+
 
 **URI parameters**
 
@@ -2335,12 +2443,12 @@ The response contains the sleep study transform.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2355,10 +2463,10 @@ HTTP status code      | Description
 
 You can restart the target computer by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/control/restart
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/control/restart |
+
 
 **URI parameters**
 
@@ -2378,10 +2486,10 @@ POST | /api/control/restart
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+
 **Available device families**
 
 * Windows Mobile
@@ -2397,10 +2505,10 @@ HTTP status code      | Description
 
 You can shut down the target computer by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/control/shutdown
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/control/shutdown |
+
 
 **URI parameters**
 
@@ -2420,12 +2528,12 @@ POST | /api/control/shutdown
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -2443,20 +2551,20 @@ HTTP status code      | Description
 
 You can start a modern app by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/taskmanager/app
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/taskmanager/app |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-appid   | (**required**) The PRAID for the app you want to start. This value should be hex64 encoded.
-package   | (**required**) The full name for the app package you want to start. This value should be hex64 encoded.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| appid   | (**required**) The PRAID for the app you want to start. This value should be hex64 encoded. |
+| package   | (**required**) The full name for the app package you want to start. This value should be hex64 encoded. |
+
 **Request headers**
 
 - None
@@ -2471,12 +2579,12 @@ package   | (**required**) The full name for the app package you want to start. 
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -2492,20 +2600,20 @@ HTTP status code      | Description
 
 You can stop a modern app by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-DELETE | /api/taskmanager/app
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/taskmanager/app |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-package   | (**required**) The full name of the app packages that you want to stop. This value should be hex64 encoded.
-forcestop   | (**optional**) A value of **yes** indicates that the system should force all processes to stop.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| package   | (**required**) The full name of the app packages that you want to stop. This value should be hex64 encoded. |
+| forcestop   | (**optional**) A value of **yes** indicates that the system should force all processes to stop. |
+
 **Request headers**
 
 - None
@@ -2520,12 +2628,12 @@ forcestop   | (**optional**) A value of **yes** indicates that the system should
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -2541,19 +2649,19 @@ HTTP status code      | Description
 
 You can kill a process by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-DELETE | /api/taskmanager/process
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/taskmanager/process |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-pid   | (**required**) The unique process id for the process to stop.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| pid   | (**required**) The unique process id for the process to stop. |
+
 **Request headers**
 
 - None
@@ -2568,12 +2676,12 @@ pid   | (**required**) The unique process id for the process to stop.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2589,10 +2697,10 @@ HTTP status code      | Description
 
 You can get the current IP configuration by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/networking/ipconfig
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/networking/ipconfig |
+
 
 **URI parameters**
 
@@ -2654,12 +2762,12 @@ The response includes the IP configuration in the following template.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -2675,10 +2783,10 @@ HTTP status code      | Description
 
 You can enumerate the available wireless network interfaces by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/wifi/interfaces
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wifi/interfaces |
+
 
 **URI parameters**
 
@@ -2716,12 +2824,12 @@ A list of the available wireless interfaces with details in the following format
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -2737,19 +2845,19 @@ HTTP status code      | Description
 
 You can enumerate the list of wireless networks on the specified interface by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/wifi/networks
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wifi/networks |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-interface   | (**required**) The GUID for the network interface to use to search for wireless networks, without brackets. 
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| interface   | (**required**) The GUID for the network interface to use to search for wireless networks, without brackets. |
+
 **Request headers**
 
 - None
@@ -2786,12 +2894,12 @@ The list of wireless networks found on the provided *interface*. This includes d
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -2807,22 +2915,22 @@ HTTP status code      | Description
 
 You can connect or disconnect to a Wi-Fi network by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/wifi/network
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/wifi/network |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-interface   | (**required**) The GUID for the network interface you use to connect to the network.
-op   | (**required**) Indicates the action to take. Possible values are connect or disconnect.
-ssid   | (**required if *op* == connect**) The SSID to connect to.
-key   | (**required if *op* == connect and network requires authentication**) The shared key.
-createprofile | (**required**) Create a profile for the network on the device.  This will cause the device to auto-connect to the network in the future. This can be **yes** or **no**. 
+| URI parameter | Description |
+| :---          | :--- |
+| interface   | (**required**) The GUID for the network interface you use to connect to the network. |
+| op   | (**required**) Indicates the action to take. Possible values are connect or disconnect.|
+| ssid   | (**required if *op* == connect**) The SSID to connect to. |
+| key   | (**required if *op* == connect and network requires authentication**) The shared key. |
+| createprofile | (**required**) Create a profile for the network on the device.  This will cause the device to auto-connect to the network in the future. This can be **yes** or **no**. |
 
 **Request headers**
 
@@ -2838,10 +2946,10 @@ createprofile | (**required**) Create a profile for the network on the device.  
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+
 **Available device families**
 
 * Windows Mobile
@@ -2857,20 +2965,20 @@ HTTP status code      | Description
 
 You can delete a profile associated with a network on a specific interface by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-DELETE | /api/wifi/network
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/wifi/profile |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-interface   | (**required**) The GUID for the network interface associated with the profile to delete.
-profile   | (**required**) The name of the profile to delete.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| interface   | (**required**) The GUID for the network interface associated with the profile to delete. |
+| profile   | (**required**) The name of the profile to delete. |
+
 **Request headers**
 
 - None
@@ -2885,10 +2993,10 @@ profile   | (**required**) The name of the profile to delete.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+
 **Available device families**
 
 * Windows Mobile
@@ -2906,22 +3014,22 @@ HTTP status code      | Description
 
 You can download a WER-related file by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/wer/report/file
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wer/report/file |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-user   | (**required**) The user name associated with the report.
-type   | (**required**) The type of report. This can be either **queried** or **archived**.
-name   | (**required**) The name of the report. This should be base64 encoded. 
-file   | (**required**) The name of the file to download from the report. This should be base64 encoded. 
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| user   | (**required**) The user name associated with the report. |
+| type   | (**required**) The type of report. This can be either **queried** or **archived**. |
+| name   | (**required**) The name of the report. This should be base64 encoded. |
+| file   | (**required**) The name of the file to download from the report. This should be base64 encoded. |
+
 **Request headers**
 
 - None
@@ -2938,12 +3046,12 @@ file   | (**required**) The name of the file to download from the report. This s
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -2957,21 +3065,21 @@ HTTP status code      | Description
 
 You can enumerate the files in a WER report by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/wer/report/files
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wer/report/files |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-user   | (**required**) The user associated with the report.
-type   | (**required**) The type of report. This can be either **queried** or **archived**.
-name   | (**required**) The name of the report. This should be base64 encoded. 
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| user   | (**required**) The user associated with the report. |
+| type   | (**required**) The type of report. This can be either **queried** or **archived**. |
+| name   | (**required**) The name of the report. This should be base64 encoded. |
+
 **Request headers**
 
 - None
@@ -2993,12 +3101,12 @@ name   | (**required**) The name of the report. This should be base64 encoded.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -3012,10 +3120,10 @@ HTTP status code      | Description
 
 You can get the WER reports by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/wer/reports
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wer/reports |
+
 
 **URI parameters**
 
@@ -3051,12 +3159,12 @@ The WER reports in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Desktop
@@ -3072,10 +3180,10 @@ HTTP status code      | Description
 
 You can upload a WPR profile and start tracing using that profile by using the following request format.  Only one trace can run at a time. The profile will not remain on the device. 
  
-Method      | Request URI
-:------     | :-----
-POST | /api/wpr/customtrace
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/wpr/customtrace |
+
 
 **URI parameters**
 
@@ -3104,12 +3212,12 @@ The WPR session status in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3124,19 +3232,19 @@ HTTP status code      | Description
 
 You can start a boot WPR tracing session by using the following request format. This is also known as a performance tracing session.
  
-Method      | Request URI
-:------     | :-----
-POST | /api/wpr/boottrace
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/wpr/boottrace |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-profile   | (**required**) This parameter is required on start. The name of the profile that should start a performance tracing session. The possible profiles are stored in perfprofiles/profiles.json.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| profile   | (**required**) This parameter is required on start. The name of the profile that should start a performance tracing session. The possible profiles are stored in perfprofiles/profiles.json. |
+
 **Request headers**
 
 - None
@@ -3160,12 +3268,12 @@ On start, this API returns the WPR session status in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3180,10 +3288,10 @@ HTTP status code      | Description
 
 You can stop a boot WPR tracing session by using the following request format. This is also known as a performance tracing session.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/wpr/boottrace
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wpr/boottrace |
+
 
 **URI parameters**
 
@@ -3205,12 +3313,12 @@ GET | /api/wpr/boottrace
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3225,19 +3333,19 @@ HTTP status code      | Description
 
 You can start a WPR tracing session by using the following request format. This is also known as a performance tracing session.  Only one trace can run at a time. 
  
-Method      | Request URI
-:------     | :-----
-POST | /api/wpr/trace
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/wpr/trace |
+
 
 **URI parameters**
 
 You can specify the following additional parameters on the request URI:
 
-URI parameter | Description
-:---          | :---
-profile   | (**required**) The name of the profile that should start a performance tracing session. The possible profiles are stored in perfprofiles/profiles.json.
-<br />
+| URI parameter | Description |
+| :---          | :--- |
+| profile   | (**required**) The name of the profile that should start a performance tracing session. The possible profiles are stored in perfprofiles/profiles.json. |
+
 **Request headers**
 
 - None
@@ -3261,12 +3369,12 @@ On start, this API returns the WPR session status in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3281,10 +3389,10 @@ HTTP status code      | Description
 
 You can stop a WPR tracing session by using the following request format. This is also known as a performance tracing session.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/wpr/trace
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wpr/trace |
+
 
 **URI parameters**
 
@@ -3306,12 +3414,12 @@ GET | /api/wpr/trace
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3326,10 +3434,10 @@ HTTP status code      | Description
 
 You can retrieve the status of the current WPR session by using the following request format.
  
-Method      | Request URI
-:------     | :-----
-GET | /api/wpr/status
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wpr/status |
+
 
 **URI parameters**
 
@@ -3358,12 +3466,12 @@ The status of the WPR tracing session in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3378,10 +3486,10 @@ HTTP status code      | Description
 
 You can get a listing of ETL traces on the device using the following request format. 
 
-Method      | Request URI
-:------     | :-----
-GET | /api/wpr/tracefiles
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wpr/tracefiles |
+
 
 **URI parameters**
 
@@ -3415,12 +3523,12 @@ The listing of completed tracing sessions is provided in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3435,18 +3543,18 @@ HTTP status code      | Description
 
 You can download a tracefile (boot trace or user-mode trace) using the following request format. 
 
-Method      | Request URI
-:------     | :-----
-GET | /api/wpr/tracefile
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/wpr/tracefile |
+
 
 **URI parameters**
 
 You can specify the following additional parameter on the request URI:
 
-URI parameter | Description
-:---          | :---
-filename   | (**required**) The name of the ETL trace to download.  These can be found in /api/wpr/tracefiles
+| URI parameter | Description |
+| :---          | :--- |
+| filename   | (**required**) The name of the ETL trace to download.  These can be found in /api/wpr/tracefiles |
 
 **Request headers**
 
@@ -3464,12 +3572,12 @@ filename   | (**required**) The name of the ETL trace to download.  These can be
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3484,18 +3592,18 @@ HTTP status code      | Description
 
 You can delete a tracefile (boot trace or user-mode trace) using the following request format. 
 
-Method      | Request URI
-:------     | :-----
-DELETE | /api/wpr/tracefile
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/wpr/tracefile |
+
 
 **URI parameters**
 
 You can specify the following additional parameter on the request URI:
 
-URI parameter | Description
-:---          | :---
-filename   | (**required**) The name of the ETL trace to delete.  These can be found in /api/wpr/tracefiles
+| URI parameter | Description |
+| :---          | :--- |
+| filename   | (**required**) The name of the ETL trace to delete.  These can be found in /api/wpr/tracefiles |
 
 **Request headers**
 
@@ -3513,12 +3621,12 @@ filename   | (**required**) The name of the ETL trace to delete.  These can be f
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3535,10 +3643,10 @@ HTTP status code      | Description
 
 View the currently applied tags for the device.  These are advertised via DNS-SD TXT records in the T key.  
  
-Method      | Request URI
-:------     | :-----
-GET | /api/dns-sd/tags
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/dns-sd/tags |
+
 
 **URI parameters**
 
@@ -3568,12 +3676,12 @@ The currently applied tags in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-5XX | Server Error 
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 5XX | Server Error |
 
-<br />
+
 **Available device families**
 
 * Windows Mobile
@@ -3589,10 +3697,10 @@ HTTP status code      | Description
 
 Delete all tags currently advertised by DNS-SD.   
  
-Method      | Request URI
-:------     | :-----
-DELETE | /api/dns-sd/tags
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/dns-sd/tags |
+
 
 **URI parameters**
 
@@ -3613,12 +3721,12 @@ DELETE | /api/dns-sd/tags
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-5XX | Server Error 
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 5XX | Server Error |
 
-<br />
+
 **Available device families**
 
 * Windows Mobile
@@ -3634,16 +3742,16 @@ HTTP status code      | Description
 
 Delete a tag currently advertised by DNS-SD.   
  
-Method      | Request URI
-:------     | :-----
-DELETE | /api/dns-sd/tag
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/dns-sd/tag |
+
 
 **URI parameters**
 
-URI parameter | Description
-:------     | :-----
-tagValue | (**required**) The tag to be removed.
+| URI parameter | Description |
+| :------     | :----- |
+| tagValue | (**required**) The tag to be removed. |
 
 **Request headers**
 
@@ -3660,11 +3768,11 @@ tagValue | (**required**) The tag to be removed.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
 
-<br />
+
 **Available device families**
 
 * Windows Mobile
@@ -3680,16 +3788,16 @@ HTTP status code      | Description
 
 Add a tag to the DNS-SD advertisement.   
  
-Method      | Request URI
-:------     | :-----
-POST | /api/dns-sd/tag
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/dns-sd/tag |
+
 
 **URI parameters**
 
-URI parameter | Description
-:------     | :-----
-tagValue | (**required**) The tag to be added.
+| URI parameter | Description |
+| :------     | :----- |
+| tagValue | (**required**) The tag to be added. |
 
 **Request headers**
 
@@ -3706,12 +3814,12 @@ tagValue | (**required**) The tag to be added.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-401 | Tag space Overflow.  Results when the proposed tag is too long for the resulting DNS-SD service record.  
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 401 | Tag space Overflow.  Results when the proposed tag is too long for the resulting DNS-SD service record. |
 
-<br />
+
 **Available device families**
 
 * Windows Mobile
@@ -3729,10 +3837,10 @@ HTTP status code      | Description
 
 Obtain a list of accessible top-level folders.
 
-Method      | Request URI
-:------     | :-----
-GET | /api/filesystem/apps/knownfolders
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/filesystem/apps/knownfolders |
+
 
 **URI parameters**
 
@@ -3758,12 +3866,12 @@ The available folders in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | Deploy request accepted and being processed
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | Deploy request accepted and being processed |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 
 **Available device families**
 
@@ -3780,18 +3888,18 @@ HTTP status code      | Description
 
 Obtain a list of files in a folder.
 
-Method      | Request URI
-:------     | :-----
-GET | /api/filesystem/apps/files
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/filesystem/apps/files |
+
 
 **URI parameters**
 
-URI parameter | Description
-:------     | :-----
-knownfolderid | (**required**) The top-level directory where you want the list of files. Use **LocalAppData** for access to sideloaded apps. 
-packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name of the app you are interested in. 
-path | (**optional**) The sub-directory within the folder or package specified above. 
+| URI parameter | Description |
+| :------     | :----- |
+| knownfolderid | (**required**) The top-level directory where you want the list of files. Use **LocalAppData** for access to sideloaded apps. |
+| packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name of the app you are interested in. |
+| path | (**optional**) The sub-directory within the folder or package specified above. |
 
 **Request headers**
 
@@ -3820,12 +3928,12 @@ The available folders in the following format.
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3841,18 +3949,18 @@ HTTP status code      | Description
 
 Obtain a file from a known folder or appLocalData.
 
-Method      | Request URI
-:------     | :-----
-GET | /api/filesystem/apps/file
+| Method      | Request URI |
+| :------     | :----- |
+| GET | /api/filesystem/apps/file |
 
 **URI parameters**
 
-URI parameter | Description
-:------     | :-----
-knownfolderid | (**required**) The top-level directory where you want to download files. Use **LocalAppData** for access to sideloaded apps. 
-filename | (**required**) The name of the file being downloaded. 
-packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name you are interested in. 
-path | (**optional**) The sub-directory within the folder or package specified above.
+| URI parameter | Description |
+| :------     | :----- |
+| knownfolderid | (**required**) The top-level directory where you want to download files. Use **LocalAppData** for access to sideloaded apps. |
+| filename | (**required**) The name of the file being downloaded. |
+| packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name you are interested in. |
+| path | (**optional**) The sub-directory within the folder or package specified above. |
 
 **Request headers**
 
@@ -3868,12 +3976,12 @@ path | (**optional**) The sub-directory within the folder or package specified a
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | The requested file
-404 | File not found
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | The requested file |
+| 404 | File not found |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3889,20 +3997,20 @@ HTTP status code      | Description
 
 Rename a file in a folder.
 
-Method      | Request URI
-:------     | :-----
-POST | /api/filesystem/apps/rename
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/filesystem/apps/rename |
 
-<br />
+
 **URI parameters**
 
-URI parameter | Description
-:------     | :-----
-knownfolderid | (**required**) The top-level directory where the file is located. Use **LocalAppData** for access to sideloaded apps. 
-filename | (**required**) The original name of the file being renamed. 
-newfilename | (**required**) The new name of the file.
-packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name of the app you are interested in. 
-path | (**optional**) The sub-directory within the folder or package specified above. 
+| URI parameter | Description |
+| :------     | :----- |
+| knownfolderid | (**required**) The top-level directory where the file is located. Use **LocalAppData** for access to sideloaded apps. |
+| filename | (**required**) The original name of the file being renamed. |
+| newfilename | (**required**) The new name of the file.|
+| packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name of the app you are interested in. |
+| path | (**optional**) The sub-directory within the folder or package specified above. |
 
 **Request headers**
 
@@ -3920,12 +4028,12 @@ path | (**optional**) The sub-directory within the folder or package specified a
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK. The file is renamed
-404 | File not found
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |. The file is renamed
+| 404 | File not found |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3941,18 +4049,18 @@ HTTP status code      | Description
 
 Delete a file in a folder.
 
-Method      | Request URI
-:------     | :-----
-DELETE | /api/filesystem/apps/file
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| DELETE | /api/filesystem/apps/file |
+
 **URI parameters**
 
-URI parameter | Description
-:------     | :-----
-knownfolderid | (**required**) The top-level directory where you want to delete files. Use **LocalAppData** for access to sideloaded apps. 
-filename | (**required**) The name of the file being deleted. 
-packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name of the app you are interested in. 
-path | (**optional**) The sub-directory within the folder or package specified above.
+| URI parameter | Description |
+| :------     | :----- |
+| knownfolderid | (**required**) The top-level directory where you want to delete files. Use **LocalAppData** for access to sideloaded apps. |
+| filename | (**required**) The name of the file being deleted. |
+| packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name of the app you are interested in. |
+| path | (**optional**) The sub-directory within the folder or package specified above. |
 
 **Request headers**
 
@@ -3970,12 +4078,12 @@ path | (**optional**) The sub-directory within the folder or package specified a
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK. The file is deleted
-404 | File not found
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |. The file is deleted |
+| 404 | File not found |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile
@@ -3991,17 +4099,17 @@ HTTP status code      | Description
 
 Upload a file to a folder.  This will overwrite an existing file with the same name, but will not create new folders. 
 
-Method      | Request URI
-:------     | :-----
-POST | /api/filesystem/apps/file
-<br />
+| Method      | Request URI |
+| :------     | :----- |
+| POST | /api/filesystem/apps/file |
+
 **URI parameters**
 
-URI parameter | Description
-:------     | :-----
-knownfolderid | (**required**) The top-level directory where you want to upload files. Use **LocalAppData** for access to sideloaded apps.
-packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name of the app you are interested in. 
-path | (**optional**) The sub-directory within the folder or package specified above.
+| URI parameter | Description |
+| :------     | :----- |
+| knownfolderid | (**required**) The top-level directory where you want to upload files. Use **LocalAppData** for access to sideloaded apps. |
+| packagefullname | (**required if *knownfolderid* == LocalAppData**) The package full name of the app you are interested in. |
+| path | (**optional**) The sub-directory within the folder or package specified above. |
 
 **Request headers**
 
@@ -4017,12 +4125,12 @@ path | (**optional**) The sub-directory within the folder or package specified a
 
 This API has the following expected status codes.
 
-HTTP status code      | Description
-:------     | :-----
-200 | OK. The file is uploaded
-4XX | Error codes
-5XX | Error codes
-<br />
+| HTTP status code      | Description |
+| :------     | :----- |
+| 200 | OK |. The file is uploaded |
+| 4XX | Error codes |
+| 5XX | Error codes |
+
 **Available device families**
 
 * Windows Mobile

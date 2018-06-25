@@ -22,17 +22,19 @@ This article provides Python code examples that demonstrate how to use the [Micr
 * Commit the app submission.
 
 <span id="create-app-submission" />
+
 ## Create an app submission
 
 This code calls other example classes and functions to use the Microsoft Store submission API to create and commit an app submission that contains game options and a trailer. To adapt this code for your own use:
 
 * Assign the ```tenant``` variable to the tenant ID for your app, and assign the ```client``` and ```secret``` variables to the client ID and key for your app. For more information, see [How to associate an Azure AD application with your Windows Dev Center account](create-and-manage-submissions-using-windows-store-services.md#how-to-associate-an-azure-ad-application-with-your-windows-dev-center-account)
-* Assign the ```application_id``` variable to the [Store ID](in-app-purchases-and-trials.md#store_ids) of the app for which you want to create a submission.
+* Assign the ```application_id``` variable to the [Store ID](in-app-purchases-and-trials.md#store-ids) of the app for which you want to create a submission.
 
 > [!div class="tabbedCodeSnippets"]
 [!code[SubmissionApi](./code/StoreServicesExamples_SubmissionAdvancedListings/python/CreateAndSubmitAppSubmissionExample.py#L1-L74)]
 
 <span id="token" />
+
 ## Obtain an Azure AD access token and invoke the submission API
 
 The following example defines the following classes:
@@ -44,6 +46,7 @@ The following example defines the following classes:
 [!code[SubmissionApi](./code/StoreServicesExamples_SubmissionAdvancedListings/python/devcenterclient.py#L1-L126)]
 
 <span id="token" />
+
 ## Get app submission listing data
 
 The following example defines helper functions that return JSON-formatted listing data for a new sample app submission.

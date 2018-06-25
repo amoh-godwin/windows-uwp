@@ -49,16 +49,14 @@ Open the property pages of your project.
 
 In the **General** settings of the **C/C++** settings group, set the **Consume Windows Runtime Extension** field to **Yes(/ZW)**.
 
-   ![Consume Windows Runtime Extension](images/desktop-to-uwp/enable-winrt-objects.png)
+   ![Consume Windows Runtime Extension](images/desktop-to-uwp/consume-runtime-extensions.png)
 
 Open the **Additional #using Directories** dialog box, and add these directories.
 
-* C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcpackages
+* %VSInstallDir%\Common7\IDE\VC\vcpackages
 * C:\Program Files (x86)\Windows Kits\10\UnionMetadata
 * C:\Program Files (x86)\Windows Kits\10\References\Windows.Foundation.UniversalApiContract\<*latest version*>
 * C:\Program Files (x86)\Windows Kits\10\References\Windows.Foundation.FoundationContract\<*latest version*>
-
-![Additional using directories](images/desktop-to-uwp/additional-using.png)
 
 Open the **Additional Include Directories** dialog box, and add this directory: C:\Program Files (x86)\Windows Kits\10\Include\<*latest version*>\um
 
@@ -115,8 +113,8 @@ private void ShowToast()
 {
     string title = "featured picture of the day";
     string content = "beautiful scenery";
-    string image = "https://unsplash.it/360/180?image=104";
-    string logo = "https://unsplash.it/64?image=883";
+    string image = "https://picsum.photos/360/180?image=104";
+    string logo = "https://picsum.photos/64?image=883";
 
     string xmlString =
     $@"<toast><visual>
@@ -147,8 +145,8 @@ void UWP::ShowToast()
 {
 	Platform::String ^title = "featured picture of the day";
 	Platform::String ^content = "beautiful scenery";
-	Platform::String ^image = "https://unsplash.it/360/180?image=104";
-	Platform::String ^logo = "https://unsplash.it/64?image=883";
+	Platform::String ^image = "https://picsum.photos/360/180?image=104";
+	Platform::String ^logo = "https://picsum.photos/64?image=883";
 
 	Platform::String ^xmlString =
 		L"<toast><visual><binding template='ToastGeneric'>" +
@@ -166,7 +164,7 @@ void UWP::ShowToast()
 	ToastNotificationManager::CreateToastNotifier()->Show(ref new ToastNotification(toastXml));
 }
 ```
-To learn more about notifications, see [Adaptive and Interactive toast notifications](https://docs.microsoft.com/windows/uwp/shell/tiles-and-notifications/adaptive-interactive-toasts).
+To learn more about notifications, see [Adaptive and Interactive toast notifications](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/adaptive-interactive-toasts).
 
 ## Support Windows XP, Windows Vista, and Windows 7/8 install bases
 

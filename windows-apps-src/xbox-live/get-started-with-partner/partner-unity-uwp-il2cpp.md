@@ -9,7 +9,7 @@ ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: xbox live, xbox, games, uwp, windows 10, xbox one, Unity
-ms.localizationpriority: medium
+ms.localizationpriority: low
 ---
 
 # Add Xbox Live support to Unity for UWP with IL2CPP scripting backend for ID@Xbox and managed partners
@@ -57,7 +57,7 @@ It will also define the "#if ENABLE_WINMD_SUPPORT" define for you so IntelliSens
 
 **9) Add the following Xbox Live code to the XboxLiveTest.cs source file**
 
-```cpp
+```csharp
 
 using System.Collections;
 using System.Collections.Generic;

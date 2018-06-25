@@ -8,7 +8,7 @@ ms.date: 03/06/2017
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
-keywords: windows 10, uwp, get started, xaml
+keywords: windows 10, uwp, first app, hello world
 ms.localizationpriority: high
 ---
 
@@ -26,8 +26,8 @@ Here you'll learn how to:
 
 ## Before you start...
 
--   [What's a Universal Windows app](whats-a-uwp.md)?
--   To complete this tutorial, you need Windows 10 and Visual Studio 2017. [Get set up](get-set-up.md).
+-   [What's a Universal Windows app?](universal-application-platform-guide.md)
+-   [Download Visual Studio 2017 (and Windows 10)](https://developer.microsoft.com/windows/downloads). If you need a hand, learn how to [get set up](get-set-up.md).
 -   We also assume you're using the default window layout in Visual Studio. If you change the default layout, you can reset it in the **Window** menu by using the **Reset Window Layout** command.
 
 > [!NOTE]
@@ -43,11 +43,11 @@ Here you'll learn how to:
 
 1.  Launch Visual Studio 2017.
 
-2.  From the **File** menu, select **New > Project...** to open the *New Project* dialog.
+2.  From the **File** menu, select **New > Project** to open the *New Project* dialog.
 
-3.  From the list of templates on the left, open **Installed > Templates > Visual C# > Windows**, and then choose **Universal** to see the list of UWP project templates.
+3.  From the list of templates on the left, choose **Installed > Visual C# > Windows Universal** to see the list of UWP project templates.
 
-    (If you don't see any Universal templates, you might be missing the components for creating UWP apps. You can repeat the installation process and add UWP support by clicking **Open Visual Studio installer** on the *New Project* dialog. See [Get set up](get-set-up.md)
+    (If you don't see any Universal templates, you might be missing the components for creating UWP apps. You can repeat the installation process and add UWP support by clicking **Open Visual Studio installer** on the *New Project* dialog. See [Get set up](get-set-up.md).)
 
     ![How to repeat the installation process](images/win10-cs-install.png)
 
@@ -230,11 +230,9 @@ When you run the app and click on the button, your computer (or phone) will lite
 
 ## Summary
 
-
 Congratulations, you've created your first app for Windows 10 and the UWP!
 
 To learn how to use XAML for laying out the controls your app will use, try the [grid tutorial](../design/layout/grid-tutorial.md), or jump straight to [next steps](learn-more.md)?
-
 
 ## See Also
 
@@ -242,5 +240,5 @@ To learn how to use XAML for laying out the controls your app will use, try the 
 * [Publishing your UWP app](https://developer.microsoft.com/store/publish-apps).
 * [How-to articles on developing UWP apps](https://developer.microsoft.com/windows/apps/develop)
 * [Code Samples for UWP developers](https://developer.microsoft.com/windows/samples)
-* [What's a Universal Windows app?](whats-a-uwp.md)
+* [What's a Universal Windows app?](universal-application-platform-guide.md)
 * [Sign up for Windows account](sign-up.md)

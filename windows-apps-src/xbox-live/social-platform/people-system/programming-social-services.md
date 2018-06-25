@@ -9,14 +9,13 @@ ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: xbox live, xbox, games, uwp, windows 10, xbox one, social manager, example
-ms.localizationpriority: medium
+ms.localizationpriority: low
 ---
 
 # Programming Social Services
 
-| Note                                                                                                                                                                                                          |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| This article demonstrates advanced API usage.  As a starting point, please take a look at the [Introduction to the Social Manager API](../intro-to-social-manager.md) which significantly simplifies development.  Please let your DAM know if you find an unsupported scenario in the Social Manager. |
+> [!NOTE]
+> This article demonstrates advanced API usage.  As a starting point, please take a look at the [Introduction to the Social Manager API](../intro-to-social-manager.md) which significantly simplifies development.  Please let your DAM know if you find an unsupported scenario in the Social Manager.
 
 The following code example demonstrates how to retrieve a social relationship with Xbox Live. It generates a list of all users on the system and retrieves the first one. Next, it retrieves all of that user's social relationships. Finally, it displays the public properties of each of those relationships.
 

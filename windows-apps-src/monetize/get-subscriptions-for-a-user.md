@@ -4,7 +4,7 @@ ms.assetid: 94B5B2E9-BAEE-4B7F-BAF1-DA4D491427D7
 description: Use this method in the Microsoft Store purchase API to get the subscriptions that a given user has entitlements to use.
 title: Get subscriptions for a user
 ms.author: mcleans
-ms.date: 04/11/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -23,7 +23,7 @@ Use this method in the Microsoft Store purchase API to get the subscription add-
 
 To use this method, you will need:
 
-* An Azure AD access token that was created with the `https://onestore.microsoft.com` audience URI.
+* An Azure AD access token that has the audience URI value `https://onestore.microsoft.com`.
 * A Microsoft Store ID key that represents the identity of the user whose subscriptions you want to get.
 
 For more information, see [Manage product entitlements from a service](view-and-grant-products-from-a-service.md).
@@ -37,7 +37,6 @@ For more information, see [Manage product entitlements from a service](view-and-
 |--------|--------------------------------------------------------|
 | POST   | ```https://purchase.mp.microsoft.com/v8.0/b2b/recurrences/query``` |
 
-<span/> 
 
 ### Request header
 
@@ -48,7 +47,6 @@ For more information, see [Manage product entitlements from a service](view-and-
 | Content-Length | number | The length of the request body.                                                                       |
 | Content-Type   | string | Specifies the request and response type. Currently, the only supported value is **application/json**. |
 
-<span/>
 
 ### Request body
 
@@ -58,7 +56,6 @@ For more information, see [Manage product entitlements from a service](view-and-
 | continuationToken |  string     |  If the user has entitlements to multiple subscriptions, the response body returns a continuation token when the page limit is reached. Provide that continuation token here in subsequent calls to retrieve remaining products.    | No      |
 | pageSize       | string | The maximum number of subscriptions to return in one response. The default is 25.     |  No      |
 
-<span/>
 
 ### Request example
 
@@ -107,6 +104,7 @@ The response body contains the following data.
 | Value        | Type   | Description            |
 |---------------|--------|---------------------|
 | items | array | An array of objects that contain data about each subscription add-on that the specified user has an entitlement to use. For more information about the data in each object, see the following table.  |
+
 
 Each object in the *items* array contains the following values.
 

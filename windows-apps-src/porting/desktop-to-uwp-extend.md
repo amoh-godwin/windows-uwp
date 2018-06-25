@@ -4,7 +4,7 @@ Description: Extend your desktop application with Windows UIs and components
 Search.Product: eADQiWindows 10XVcnh
 title: Extend your desktop application with Windows UIs and components
 ms.author: normesta
-ms.date: 11/28/2017
+ms.date: 06/08/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
@@ -23,6 +23,8 @@ In many cases you can call UWP APIs directly from your desktop application, so b
 
 If you're ready, let's start.
 
+<a id="setup" />
+
 ## First, setup your Solution
 
 Add one or more UWP projects and runtime components to your solution.
@@ -31,7 +33,7 @@ Start with a solution that contains a **Windows Application Packaging Project** 
 
 This image shows an example solution.
 
-![Extend start project](images\desktop-to-uwp\extend-start-project.png)
+![Extend start project](images/desktop-to-uwp/extend-start-project.png)
 
 If your solution doesn't contain a packaging project, see [Package your app by using Visual Studio](desktop-to-uwp-packaging-dot-net.md).
 
@@ -41,29 +43,29 @@ Add a **Blank App (Universal Windows)** to your solution.
 
 This is where you'll build a modern XAML UI or use APIs that run only within a UWP process.
 
-![UWP project](images\desktop-to-uwp\add-uwp-project-to-solution.png)
+![UWP project](images/desktop-to-uwp/add-uwp-project-to-solution.png)
 
 In your packaging project, right-click the **Applications** node, and then click **Add Reference**.
 
-![Reference UWP Project](images\desktop-to-uwp\add-uwp-project-reference.png)
+![Reference UWP Project](images/desktop-to-uwp/add-uwp-project-reference.png)
 
 Then, add a reference the UWP project.
 
-![Reference UWP Project](images\desktop-to-uwp\choose-uwp-project.png)
+![Reference UWP Project](images/desktop-to-uwp/choose-uwp-project.png)
 
 Your solution will look something like this:
 
-![Solution with UWP project](images\desktop-to-uwp\uwp-project-reference.png)
+![Solution with UWP project](images/desktop-to-uwp/uwp-project-reference.png)
 
 ### (Optional) Add a Windows Runtime Component
 
 To accomplish some scenarios, you'll have to add code to a Windows Runtime Component.
 
-![runtime component app service](images\desktop-to-uwp\add-runtime-component.png)
+![runtime component app service](images/desktop-to-uwp/add-runtime-component.png)
 
 Then, from your UWP project, add a reference to the runtime component. Your solution will look something like this:
 
-![Runtime Component Reference](images\desktop-to-uwp\runtime-component-reference.png)
+![Runtime Component Reference](images/desktop-to-uwp/runtime-component-reference.png)
 
 Let's take a look at a few things you can do with your UWP projects and runtime components.
 
@@ -73,141 +75,164 @@ As part of your application flow, you can incorporate modern XAML-based user int
 
 For example, with a small amount of XAML markup, you can give users with powerful map-related visualization features.
 
-This image shows a VB6 application that opens a XAML-based modern UI that contains a map control.
+This image shows a Windows Forms application that opens a XAML-based modern UI that contains a map control.
 
-![adaptive-design](images\desktop-to-uwp\extend-xaml-ui.png)
-
-### Have a closer look at this app
-
-:heavy_check_mark: [Watch a video](https://mva.microsoft.com/en-US/training-courses/developers-guide-to-the-desktop-bridge-17373/Demo-Add-a-XAML-UI-and-Toast-Notification-to-a-VB6-Application-OsJHC7WhD_8006218965)
-
-:heavy_check_mark: [Get the app](https://www.microsoft.com/en-us/store/p/vb6-app-with-xaml-sample/9n191ncxf2f6)
-
-:heavy_check_mark: [Browse the code](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/VB6withXaml)
+![adaptive-design](images/desktop-to-uwp/extend-xaml-ui.png)
 
 ### The design pattern
 
 To show a XAML-based UI, do these things:
 
-:one: [Add a protocol extension to that project](#protocol)
+:one: [Setup your Solution](#solution-setup)
 
-:two: [Start the UWP app from your desktop app](#start)
+:two: [Create a XAML UI](#xaml-UI)
 
-:three: [In the UWP project, show the page that you want](#parse)
+:three: [Add a protocol extension to the UWP project](#protocol)
 
-<a id="protocol" />
+:four: [Start the UWP app from your desktop app](#start)
+
+:five: [In the UWP project, show the page that you want](#parse)
+
+<a id="solution-setup" />
+
+### Setup your Solution
+
+For general guidance on how to set your solution up, see the [First, setup your Solution](#setup) section at the beginning of this guide.
+
+Your solution would look something like this:
+
+![XAML UI Solution](images/desktop-to-uwp/xaml-ui-solution.png)
+
+In this example, the Windows Forms project is named **Landmarks** and the UWP project that contains the XAML UI is named **MapUI**.
+
+<a id="xaml-UI" />
+
+### Create a XAML UI
+
+Add a XAML UI to your UWP project. Here's the XAML for a basic map.
+
+```xml
+<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="12,20,12,14">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <maps:MapControl x:Name="myMap" Grid.Column="0" Width="500" Height="500"
+                     ZoomLevel="{Binding ElementName=zoomSlider,Path=Value, Mode=TwoWay}"
+                     Heading="{Binding ElementName=headingSlider,Path=Value, Mode=TwoWay}"
+                     DesiredPitch="{Binding ElementName=desiredPitchSlider,Path=Value, Mode=TwoWay}"    
+                     HorizontalAlignment="Left"               
+                     MapServiceToken="<Your Key Goes Here" />
+    <Grid Grid.Column="1" Margin="12">
+        <StackPanel>
+            <Slider Minimum="1" Maximum="20" Header="ZoomLevel" Name="zoomSlider" Value="17.5"/>
+            <Slider Minimum="0" Maximum="360" Header="Heading" Name="headingSlider" Value="0"/>
+            <Slider Minimum="0" Maximum="64" Header=" DesiredPitch" Name="desiredPitchSlider" Value="32"/>
+        </StackPanel>
+    </Grid>
+</Grid>
+```
+
 ### Add a protocol extension
 
 In **Solution Explorer**, open the **package.appxmanifest** file of the UWP project in your solution, and add this extension.
 
 ```xml
 <Extensions>
-      <uap:Extension
-          Category="windows.protocol"
-          Executable="MapUI.exe"
-          EntryPoint=" MapUI.App">
-        <uap:Protocol Name="desktopbridgemapsample" />
-      </uap:Extension>
-    </Extensions>     
+  <uap:Extension Category="windows.protocol" Executable="MapUI.exe" EntryPoint="MapUI.App">
+    <uap:Protocol Name="xamluidemo" />
+  </uap:Extension>
+</Extensions>    
 ```
 
 Give the protocol a name, provide the name of the executable produced by the UWP project, and the name of the entry point class.
 
 You can also open the **package.appxmanifest** in the designer, choose the **Declarations** tab, and then add the extension there.
 
-![declarations-tab](images\desktop-to-uwp\protocol-properties.png)
-
-
+![declarations-tab](images/desktop-to-uwp/protocol-properties.png)
 
 > [!NOTE]
 > Map controls download data from the internet so if you use one, you'll have to add the "internet client" capability to your manifest as well.
 
 <a id="start" />
+
 ### Start the UWP app
 
-First, from your desktop application, create a [Uri](https://msdn.microsoft.com/library/system.uri.aspx) that includes the protocol name and any parameters you want to pass into the UWP app. Then, call the [LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher#Windows_System_Launcher_LaunchUriAsync_Windows_Foundation_Uri_) method.
-
-Here's a basic example in C#.
+First, from your desktop application, create a [Uri](https://msdn.microsoft.com/library/system.uri.aspx) that includes the protocol name and any parameters you want to pass into the UWP app. Then, call the [LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) method.
 
 ```csharp
 
-private async void showMap(double lat, double lon)
+private void Statue_Of_Liberty_Click(object sender, EventArgs e)
 {
-    string str = "desktopbridgemapsample://";
+    ShowMap(40.689247, -74.044502);
+}
+
+private async void ShowMap(double lat, double lon)
+{
+    string str = "xamluidemo://";
 
     Uri uri = new Uri(str + "location?lat=" +
         lat.ToString() + "&?lon=" + lon.ToString());
 
     var success = await Windows.System.Launcher.LaunchUriAsync(uri);
 
-    if (success)
-    {
-        // URI launched
-    }
-    else
-    {
-        // URI launch failed
-    }
 }
-```
-In our sample, we're doing something a bit more indirect. We've wrapped the call in a VB6-callable interop function named ``LaunchMap``. That function is written by using C++.
-
-Here's the VB block:
-
-```VB
-Private Declare Function LaunchMap Lib "UWPWrappers.dll" _
-  (ByVal lat As Double, ByVal lon As Double) As Boolean
- 
-Private Sub EiffelTower_Click()
-    LaunchMap 48.858222, 2.2945
-End Sub
-```
-
-Here's the C++ function:
-
-```C++
-
-DllExport bool __stdcall LaunchMap(double lat, double lon)
-{
-  try
-  {
-    String ^str = ref new String(L"desktopbridgemapsample://");
-    Uri ^uri = ref new Uri(
-      str + L"location?lat=" + lat.ToString() + L"&?lon=" + lon.ToString());
- 
-    // now launch the UWP component
-    Launcher::LaunchUriAsync(uri);
-  }
-  catch (Exception^ ex) { return false; }
-  return true;
-}
-
 ```
 
 <a id="parse" />
+
 ### Parse parameters and show a page
 
 In the **App** class of your UWP project, override the **OnActivated** event handler. If the app is activated by your protocol, parse the parameters and then open the page that you want.
 
-```C++
-void App::OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs^ e)
+```csharp
+protected override void OnActivated(Windows.ApplicationModel.Activation.IActivatedEventArgs e)
 {
-  if (e->Kind == ActivationKind::Protocol)
-  {
-    ProtocolActivatedEventArgs^ protocolArgs = (ProtocolActivatedEventArgs^)e;
-    Uri ^uri = protocolArgs->Uri;
-    if (uri->SchemeName == "desktopbridgemapsample")
-    {
-      Frame ^rootFrame = ref new Frame();
-      Window::Current->Content = rootFrame;
-      rootFrame->Navigate(TypeName(MainPage::typeid), uri->Query);
-      Window::Current->Activate();
-    }
-  }
+    if (e.Kind == ActivationKind.Protocol)
+    {
+        ProtocolActivatedEventArgs protocolArgs = (ProtocolActivatedEventArgs)e;
+        Uri uri = protocolArgs.Uri;
+        if (uri.Scheme == "xamluidemo")
+        {
+            Frame rootFrame = new Frame();
+            Window.Current.Content = rootFrame;
+            rootFrame.Navigate(typeof(MainPage), uri.Query);
+            Window.Current.Activate();
+        }
+    }
 }
 ```
 
+Override the ``OnNavigatedTo`` method to use the parameters passed into the page. In this case, we'll use the latitude and longitude that were passed into this page to show a location in a map.
+
+```csharp
+protected override void OnNavigatedTo(NavigationEventArgs e)
+ {
+     if (e.Parameter != null)
+     {
+         WwwFormUrlDecoder decoder = new WwwFormUrlDecoder(e.Parameter.ToString());
+
+         double lat = Convert.ToDouble(decoder[0].Value);
+         double lon = Convert.ToDouble(decoder[1].Value);
+
+         BasicGeoposition pos = new BasicGeoposition();
+
+         pos.Latitude = lat;
+         pos.Longitude = lon;
+
+         myMap.Center = new Geopoint(pos);
+
+         myMap.Style = MapStyle.Aerial3D;
+
+     }
+
+     base.OnNavigatedTo(e);
+ }
+```
+
 ### Similar Samples
+
+[Adding a UWP XAML user experience to VB6 Application](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/VB6withXaml)
 
 [Northwind sample: End-to-end example for UWA UI & Win32 legacy code](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/NorthwindSample)
 
@@ -219,11 +244,9 @@ You add a service that other apps can consume. For example, you can add a servic
 
 Here's a sample that does this.
 
-![adaptive-design](images\desktop-to-uwp\winforms-app-service.png)
+![adaptive-design](images/desktop-to-uwp/winforms-app-service.png)
 
 ### Have a closer look at this app
-
-:heavy_check_mark: [Watch a video](https://mva.microsoft.com/en-US/training-courses/developers-guide-to-the-desktop-bridge-17373/Demo-Expose-an-AppService-from-a-Windows-Forms-Data-Application-GiqNS7WhD_706218965)
 
 :heavy_check_mark: [Get the app](https://www.microsoft.com/en-us/store/p/winforms-appservice/9p7d9b6nk5tn)
 
@@ -240,6 +263,7 @@ To show provide a service, do these things:
 :three: [Test the app service](#test)
 
 <a id="appservice" />
+
 ### Implement the app service
 
 Here's where you'll validate and handle requests from other apps. Add this code to a Windows Runtime Component in your solution.
@@ -298,11 +322,12 @@ Open the **package.appxmanifest** file of the UWP project, and add an app servic
 Give the app service a name and provide the name of the entry point class. This is the class in which you implemented the service.
 
 <a id="test" />
+
 ### Test the app service
 
 Test your service by calling it from another app. This code can be a desktop application such as a Windows forms app or another UWP app.
 
->[!NOTE]
+> [!NOTE]
 > This code only works if you properly set the ``PackageFamilyName`` property of the ``AppServiceConnection`` class. You can get that name by calling ``Windows.ApplicationModel.Package.Current.Id.FamilyName`` in the context of the UWP project. See [Create and consume an app service](https://docs.microsoft.com/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service).
 
 ```csharp
@@ -348,11 +373,9 @@ You can make your desktop application a share target so that users can easily sh
 
 For example, users could choose your app to share pictures from Microsoft Edge, the Photos app. Here's a WPF sample app that has that capability.
 
-![share target](images\desktop-to-uwp\share-target.png)
+![share target](images/desktop-to-uwp/share-target.png)
 
 ### Have a closer look at this app
-
-:heavy_check_mark: [Watch a video](https://mva.microsoft.com/en-US/training-courses/developers-guide-to-the-desktop-bridge-17373/Demo-Make-a-WPF-Application-a-Share-Target-xd6Fu6WhD_8406218965)
 
 :heavy_check_mark: [Get the app](https://www.microsoft.com/en-us/store/p/wpf-app-as-sharetarget/9pjcjljlck37)
 
@@ -367,6 +390,7 @@ To make your application a share target, do these things:
 :two: [Override the OnNavigatedTo event handler](#override)
 
 <a id="share-extension" />
+
 ### Add a share target extension
 
 In **Solution Explorer**, open the **package.appxmanifest** file of the UWP project in your solution and add the extension.
@@ -390,6 +414,7 @@ In **Solution Explorer**, open the **package.appxmanifest** file of the UWP proj
 Provide the name of the executable produced by the UWP project, and the name of the entry point class. You'll also have to specify what types of files can be shared with your app.
 
 <a id="override" />
+
 ### Override the OnNavigatedTo event handler
 
 Override the **OnNavigatedTo** event handler in the **App** class of your UWP project.
@@ -419,7 +444,7 @@ You add a background task to run code even when the app is suspended. Background
 
 Here's a WPF sample app that registers a background task.
 
-![background task](images\desktop-to-uwp\sample-background-task.png)
+![background task](images/desktop-to-uwp/sample-background-task.png)
 
 The task makes an http request and measures the time that it takes for the request to return a response. Your tasks will likely be much more interesting, but this sample is great for learning the basic mechanics of a background task.
 
@@ -438,6 +463,7 @@ To create a background service, do these things:
 :three: [Register the background task](#register-background-task)
 
 <a id="implement-task" />
+
 ### Implement the background task
 
 Implement the background task by adding code to a Windows Runtime component project.
@@ -478,23 +504,25 @@ public sealed class SiteVerifier : IBackgroundTask
 ```
 
 <a id="configure-background-task" />
+
 ### Configure the background task
 
 In the manifest designer, open the **package.appxmanifest** file of the UWP project in your solution.
 
 In the **Declarations** tab, add a **Background Tasks** declaration.
 
-![Background task option](images\desktop-to-uwp\background-task-option.png)
+![Background task option](images/desktop-to-uwp/background-task-option.png)
 
 Then, choose the desired properties. Our sample uses the **Timer** property.
 
-![Timer property](images\desktop-to-uwp\timer-property.png)
+![Timer property](images/desktop-to-uwp/timer-property.png)
 
 Provide the fully qualified name of the class in your Windows Runtime Component that implements the background task.
 
-![Timer property](images\desktop-to-uwp\background-task-entry-point.png)
+![Timer property](images/desktop-to-uwp/background-task-entry-point.png)
 
 <a id="register-background-task" />
+
 ### Register the background task
 
 Add code to your desktop application project that registers the background task.
